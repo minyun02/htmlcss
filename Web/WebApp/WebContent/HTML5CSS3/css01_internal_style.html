@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 
+	스타일 표시 방법
+	inline 방식 : html 태그에 style속성으로 표기
+	internal 방식 : head태그에 style이라는 태그를 이용해서 표기하는 방법
+	external 방식 : style sheet를 별도의 외부 파일로 만들어 사용
+ -->
+ <style>
+ 	/*스타일시트 주석문*/
+ 	/* 선택자 : 태그 선택자, id 선택자:아이디는 1개만 있어야한다., 클래스 선택자 */
+ 	
+ 	/* 선택자{속성:속성값; 속성:속성값; 속성:속성값;} */
+ 	div{
+ 		color:blue;
+ 		background-color:#ddd;
+ 	}
+ 	#txt{
+ 		background-color:yellow;
+ 	}
+ 	
+ 	/*클래스 선택자*/
+ 	.c1{
+		font-size:20pt; 	
+ 	}
+ 	#d1{
+ 		/*text-decoration : underline(밑줄), overline(윗줄), line-through(취소선), none*/
+ 		text-decoration:underline;	
+ 	}
+ </style>
+</head>
+<body>
+<h1 style="color:red">스타일 시트</h1>
+
+<ul>
+	<li class="c1">inline 방식 : html 태그에 style속성으로 표기</li>
+	<li id="txt">internal 방식 : head태그에 style이라는 태그를 이용해서 표기하는 방법</li>
+	<li>external 방식 : style sheet를 별도의 외부 파일로 만들어 사용</li>
+</ul>
+<div class="c1">
+	알고보니 그동안 남자친구의 여동생으로 알고 있었던 여자는 <span id="d1">바로 남자친구와 10년 동안 연애했던 전 여자친구</span>였던 것.
+	보증금과 살림살이를 다 반반으로 장만해서 합의하에 '하우스메이트'로 지내고 있다는 남자친구의 말에 MC들은 넋이 나간 채 말을 잇지 못했다.
+	이처럼 할리우드 커플 뺨치는 사연자의 썰에 김지민은 "토나와. 진짜 쓰레기다"라고 '찐' 현실 반응을 보여 시청자들로 하여금 사연에 더욱 몰입하게 했다.
+	스페셜 밸런서 써니 역시 역대급 사연에 한동안 말을 잇지 못하다가 "기만한 거야. 이건"이라며 단호하게 말해 사이다 매력을 뽐냈다.
+</div>
+<ul>
+	<li>inline 방식 : html 태그에 style속성으로 표기</li>
+	<li>internal 방식 : head태그에 style이라는 태그를 이용해서 표기하는 방법</li>
+	<li>external 방식 : style sheet를 별도의 외부 파일로 만들어 사용</li>
+</ul>
+<div>
+	알고보니 그동안 남자친구의 여동생으로 알고 있었던 여자는 바로 남자친구와 10년 동안 연애했던 전 여자친구였던 것.
+	보증금과 살림살이를 다 반반으로 장만해서 <span>합의하에 '하우스메이트'로 지내고 있다는 남자친구의 말</span>에 MC들은 넋이 나간 채 말을 잇지 못했다.
+	이처럼 할리우드 커플 뺨치는 사연자의 썰에 김지민은 "토나와. 진짜 쓰레기다"라고 '찐' 현실 반응을 보여 시청자들로 하여금 사연에 더욱 몰입하게 했다.
+	스페셜 밸런서 써니 역시 역대급 사연에 한동안 말을 잇지 못하다가 <span>"기만한 거야. 이건"</span>이라며 단호하게 말해 사이다 매력을 뽐냈다.
+</div>
+</body>
+</html>
