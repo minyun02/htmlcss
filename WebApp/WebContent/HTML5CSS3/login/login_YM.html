@@ -5,13 +5,127 @@
 <title>Insert title here</title>
 <style>
 	body{
-		background-color:lightgrey;
+		background-color: lightgrey;
+		margin:0px;
+		padding:0px;
+	}
+	#header>div, #section, #footer{
+		width:700px;
+		margin:0 auto;
+		background-color:white;
+	}
+	#header>div{
+		border-bottom:1px solid #d6d6d6;
+	}
+	#logo{
+		padding:8px 300px 5px;
+	}
+	#idField{
+		padding:50px 20px 10px;
+	}
+	#pwdField, #buttonField{
+		padding:0 20px 20px;
+	}
+	
+	#id, #pwd{
+		width:300px;
+		height: 50px;
+		font-size:16px;
+		border: 1px solid #d6d6d6;
+		color: #d6d6d6;
+	}
+	#button{
+		width: 305px;
+		height: 50px;
+		font-size:16px;
+		background: #4d87ef;
+		color:#fff;
+		border:none;
+	}
+	#checkboxField{
+		padding-left:20px;
+		font-size:13px;
+		
+	}
+	#checkbox{
+		float:left;
+		margin: 0;
+	} 
+	#keepState{
+		float:left;
+		padding-right: 135px;
+	}
+	#searchField{
+		padding: 30px 20px;
+		font-size:13px;
+	}
+	#idSearch{
+		float:left;
+		padding-left:80px;
+		padding-right:10px;
+		margin-right:10px;
+		border-right:1px solid black;
+	}
+	#image{
+		position: absolute;
+		right: 340px;
+		top: 120px;
+	}
+	#footer{
+		height:1000px;
+		font-size:12px;
+		color: #d6d6d6;
+	}
+	#footerCs{
+		border-top: 1px solid #d6d6d6;
+		height: 100%;
+		padding: 20px 40%;
+	}
+	#kakao{
+		float:left;
+		padding-right:10px;
+		margin-right: 10px;
+		border-right: 1px solid #d6d6d6; 
 	}
 </style>
 </head>
 <body>
-	<div id="logo">
+	<div id="header">
+		<div>
+			<img id="logo" src="logo.png">
+		</div>
+	</div>	
+	<div id="section">
+		<div id="idField">
+			<input id="id" type="text" name="userid" placeholder="아이디 입력">
+		</div>
+		<div id="pwdField">
+			<input id="pwd" type="password" name="userpwd" placeholder="비밀번호 입력">
+		</div>
+		<div id="buttonField">
+		<input id="button" type="button" value="로그인">
+		</div>
 		
+		<div id="checkboxField">
+			<input id="checkbox" type="checkbox" name="loginState">
+			<div id="keepState">로그인 상태 유지</div>
+			<div>IP보안 ON</div>
+		</div>
+		
+		<div id="searchField">
+			<div id="idSearch">아이디 찾기</div>
+			<div id="pwdSearch">비밀번호 찾기</div>
+		</div>
+	</div>
+	
+	<div id="image">
+			<img src="1.png">
+	</div>		
+	<div id="footer">
+		<div id="footerCs">
+			<div id="kakao">@Kakao.Corp</div>
+			<div id="cs">고객센터</div>
+		</div>
 	</div>
 </body>
 </html>
