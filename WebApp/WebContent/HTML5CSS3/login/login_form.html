@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>로그인 폼</title>
+<link rel="stylesheet" href="login.css" type="text/css">
+
+</head>
+<body>
+<div id="main">
+	<!-- 로고 -->
+	<div id="top_logo">
+		<a href="#"><img src="logo.png"></a>
+	</div>
+	<!-- 로그인폼, 배너 -->
+	<div id="login_form">
+		<div id="login">
+			<form method="post" action="Login.jsp">
+				<input type="text" class="form_input form" name="userid" placeholder="아이디입력">
+				<input type="password" class="form_input form" name="userpwd" placeholder="비밀번호입력">
+				<!--<input type="button" value="로그인">-->
+				<input type="submit" class="form_com form sub" value="로그인">
+				<div id="state">
+					<span>
+						<input type="checkbox" name="logState" value="no"> 로그인 상태 유지
+					</span>
+					<span style="float:right">
+						<a href="#">보안</a> 
+						<a href="#">ON</a>
+					</span>
+				</div>
+				<div id="check">
+					<a href="#">아이디 찾기 |</a> 
+					<a href="#">비밀번호 찾기</a>
+				</div>
+			</form>
+		</div>
+		<a href="#"><img src="1.png" id="banner"></a>
+	</div>
+	<div id="bottom">
+		copyright
+	</div>
+</div>
+</body>
+</html>

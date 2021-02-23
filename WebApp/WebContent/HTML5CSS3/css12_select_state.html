@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	/*상태선택자*/
+	/* :focus -> 커서가 컴퍼넌트에 들어오면 */
+	input:focus{
+		background-color:yellow;
+	}
+	/*컴퍼넌트가 체크되면*/
+	input:checked{
+		width:50px;
+		height:50px;
+	}
+	/*disabled : 비활성화 -> 서버로 안가져가짐
+	  readonly : 읽기전용 -> 서버로 가져감	
+	*/
+	textarea:disabled{
+		color:red;font-size:1.5em;
+	}/*enabled : 활성화일때 스타일 적용*/
+	input:enabled{
+		background-color:red;
+		color:#fff;
+	}
+</style>
+</head>
+<body>
+<form method="post" action="bbb.jsp">
+	아이디 : <input type="text" name="userid" placeholder="아이디를 입력하세요." size="10" maxlength="5" value="goguma" disabled/>
+	비밀번호 : <input type="password" name="userpwd" placeholder="비밀번호 입력" disabled/>
+	파일첨부 : <input type="file" name="filename" id="filename"/><br/>
+	체크박스 : <input type="checkbox" name="hobby" value="등산"/>등산
+			 <input type="checkbox" name="hobby" value="농구" checked/> 농구
+			 <input type="checkbox" name="hobby" value="배구"/> 배구<br>
+	라디오 : <input type="radio" name="gender" value="M" checked/>남
+	 		<input type="radio" name="gender" value="F"/>여<br/>
+	 		
+	여러줄 텍스트 : <textarea name="content" rows="5" cols="50" disabled>컨텐츠</textarea><br/>
+	목록 태그 : <select name="hobby2" size="3" multiple>
+				<option value="A">독서</option>
+	 			<option value="등산">등산</option>
+	 			<option value="바이크" selected>바이크</option>
+	 			<option value="달리기">달리기</option>
+	 		</select><br/>	
+	목록 태그 :<select name="choice">
+				<optgroup label="프론트엔드">
+					<option value="html">html</option>
+					<option value="css">css</option>
+					<option value="javascript">javascript</option>
+				</optgroup>
+				<optgroup label="백엔드">
+					<option value="jsp">jsp</option>
+					<option value="servlet">servlet</option>
+				</optgroup>
+	 		</select><br/>
+	<input type="button" value="버튼">
+</form>
+</body>
+</html>
