@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>@media 쿼리 : 반응형 스타일 지정하기</title>
+<!-- 장치에 맞게 픽셀정보 조정 											0~10-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	ul, li{
+		margin:0px;
+		padding:0px;
+		list-style-type:none;
+	}
+	li{border:1px solid #ddd; margin:3px; padding:3px;width:45%;float:left;}
+	/*반응형 스타일 지정*/
+	/*320px ~ 600px*/
+	/*		all, screen, print, tv, project .......*/
+	@media all and (min-width: 320px) and (max-width:600px){
+		li{
+			background-color: red;
+			color: white;
+		}
+	}
+	@media all and (min-width: 601px) and (max-width: 800px){
+		li{
+			background-color: lightblue;
+			color: red;
+		}
+	}
+	@media all and (min-width: 801px){
+		li{
+			background-color: black;
+			color: white;
+		}
+	}
+</style>
+</head>
+<body>
+<ul>
+	<li>광명시흥은 이명박 정부 시절 보금자리 주택지구(9만5000가구)로 지정됐다가, </li>
+	<li>주택시장 침체와 주민 반발로 지구 지정이 해제됐다.</li>
+	<li>문 정부 들어 신도시 공급계획이 발표될 때마다 유력 후보지로 꼽히다가 결국 6번째 3기 신도시로 지정됐다. </li>
+	<li>서울 여의도에서 12㎞가량 떨어져 있으며,</li>
+	<li>서울시 경계에서 최단거리 1㎞로 서울 주택 수요 흡수가 가능하다는 것이 정부의 판단이다.</li>
+	<li>여의도 면적의 4.3배로 3기 신도시 중 최대 규모로 조성된다. </li>
+	<li>면적으로 따지면 지금까지 1~3기 신도시 중 동탄2(2400만㎡), 분당(1960만㎡), 파주운정(1660만㎡), 일산(1570만㎡), 고덕국제화(1340만㎡)에 이어 6번째로 크다.</li>
+	<li>공원도 3기 신도시 중 최대 규모로 조성된다. 면적의 약 30%(380만㎡)가 공원으로 조성된다. 여의도 면적의 1.3배 규모다.</li>
+	<li>교통대책도 마련한다. 서울까지 20분이면 이동할 수 있도록 철도 중심의 대중교통을 구축한다.</li>
+</ul>
+</body>
+</html>

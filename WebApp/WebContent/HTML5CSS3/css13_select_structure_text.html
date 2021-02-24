@@ -31,7 +31,17 @@
 	}
 </style>
 </head>
-<body>
+<!-- 
+	html속성을 이용한 마우스 드래그 또는 복사 제한
+	
+	oncontextmenu : 마우스 오른쪽 버튼 메뉴 제어
+	onselectstart : 마우스 드래그 시작 불가능
+	
+	ondragstart : 드래그 시작 불가능
+	ondragend	: 드래그 종료 불가능
+ -->
+
+<body oncontextmenu="return false" onselectstart="return false">
 <div id="std">
 	<ul>
 		<li>구조 선택자 ~~~~~~~~~</li>
@@ -79,6 +89,67 @@
 		<li>구조 선택자 ~~~~~~~~~</li>
 		<li>구조 선택자 ~~~~~~~~~</li>
 	</ul>
-</div>		
+</div>
+<style>
+	/*
+		문자 스타일
+		::first-letter -> 문자의 첫번째 글자에 대한 스타일
+		::first-line -> 문자열의 첫번째 행에 대한 스타일	
+		::selection -> 문자열을 선택했을때 선택영역에 대한 스타일
+	*/
+	#txt::first-letter{
+		color:red;
+		font-size: 30px;
+		font-weight: bold;
+	}
+	#txt::first-line{
+		text-decoration: underline;
+		color: blue; 
+	}
+	#txt::selection{
+		background: #000;
+		color:yellow;
+	}
+</style>
+<div id="txt">
+	추 전 장관은 24일 자신의 사회관계망서비스(SNS)를 통해 "어느 나라에서도 검찰이 수사권과 기소권을 함께 가지고 심지어 영장청구권까지 독점하고 있지는 않다"며 이같이 밝혔다.
+	"우리에게 대륙법을 이식시킨 일본마저도 형사는 수사로, 검사는 기소하는 법률 전문가로 각자의 정의를 추구하고 있고 대륙법 원조인 독일도 검찰은 자체 수사 인력을 보유하지 않는다"는 주장이다.
+	그는 "1954년 형사소송법 제정 당시 염상섭 법전편찬위원회 위원은 우리나라도 '장래에 조만간' 수사권과 기소권을 분리시키는 방향으로 나가야 함을 강조했다"며
+	"그 '조만간'이 어언 67년이 지나 버렸다"고 지적했다. 그러면서 "이제 와서 속도 조절을 해야 한다면 67년의 허송세월이 부족하다는 것이 돼 버린다”고 덧붙였다.
+	추 전 장관은 "아직도 충분한 논의가 필요하다고 하는 것 또한 어느 나라도 우리와 같은 검찰이 없다는 사실을 알면서 무엇을 더 논의해야 한다는 것인지 납득이 가지 않는다"며
+	"중수청을 설치함으로써 검사실에 배치된 수사관을 빼게 되면 수사·기소 분리가 당장 어렵지 않게 될 것"이라고 강조했다.
+</div>
+<style>
+	/*	부정(not) 선택자
+		:not() -> 선택자를 제외한 나머지에 스타일 지정
+	*/
+	#lnk>a:not([target=_blank]){
+		background-color: orange;
+	}
+	/*링크 주소를 표시하는 스타일
+		::after -> 텍스트를 표시후 주소를 표시한다.
+		::before -> 주소를 표시하고 텍스트를 표시한다.
+	*/
+	/*#lnk>a::after{content:'->' attr(href)}*/	
+	#lnk>a::before{content:attr(href) '<-'}
+</style>
+<div id="lnk">
+	<a href="https://www.daum.net">다음</a><br/>
+	<a href="https://www.nate.com" target="_blank">네이트</a><br/>
+	<a href="../index.html">홈으로</a><br/>
+	<a href="https://www.oracle.com">오라클</a><br/>
+</div>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+

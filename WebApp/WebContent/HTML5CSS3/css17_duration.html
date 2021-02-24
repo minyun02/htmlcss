@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	div{
+		width: 500px;
+		height: 500px;
+		overflow: hidden; /*overflow : hidden, srcoll, auto*/
+		border: 1px solid gray;
+	}
+	div>img{
+		width:100%;
+	}
+	input:checked + div{
+		/*height: 0px;
+		display: none;
+		visibility:hidden;*/
+		
+		transition-duration: 2s; /*지정한 시간(second)을 기준으로 변환한다.*/
+		opacity: 0.5;
+		width: 20px;
+		height: 20px;
+	}
+</style>
+</head>
+<body>
+<input type="checkbox">클릭
+<div>
+	<img src="../img/nogod.jpg">
+	<img src="../img/aussie.png">
+</div>
+<div>
+	as;djf;lkjsdff;lkjsadf;lksa
+</div>
+</body>
+</html>
