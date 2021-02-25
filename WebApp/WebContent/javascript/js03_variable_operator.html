@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	//계산 가능
+	//연산자 : +,-,*,/,%,>,<,>=,<=,!=,==,+=,-=........++, --,,,,, &&, ||, !
+	//명령어 : if, if~else, for, while, switch, do-while, break, continue
+	
+	var str = 'hong'; // or "hong"
+	var n = 1234;
+	var n2 = 12.23;
+	
+	//함수 정의
+	//페이지 로딩시에는 실행하지 않는다.
+	//함수는 호출해야 실행된다.
+	function gugudan(){
+		var dan = document.getElementById('num').value;
+		//구구단.....
+		var r ="";
+		for(var i=2; i<=9; i++){
+			r += dan+"*"+i+"="+(dan*i)+"<br>";
+		}
+		document.getElementById("result").innerHTML = r;
+		document.getElementById("num").value = "";
+	}
+	function plus(){
+		//문자를 숫자로 바꾸기
+		var n1 = parseInt(document.getElementById("num").value);
+		var n2 = parseInt(document.getElementById("num2").value);
+		
+		var result = n1 + n2;
+		document.getElementById("result").innerHTML = result;
+	}
+	function imageChange(){
+		document.getElementById("i").src="../img/aussie.png";
+	}
+	function change(){
+		document.getElementById("i").src="../img/stars.jfif";
+	}
+</script>
+</head>
+<body>
+수 : <input type="text" id="num">
+수 : <input type="text" id="num2">
+<input type="button" value="구구단" onclick="gugudan()">
+<input type="button" value="더하기" onclick="plus()">
+<div id="result"></div>
+<script>
+	//document.getElementById("result").innerHTML = r;
+</script>
+<img src="../img/stars.jfif" id="i" onmouseover="imageChange()" onmouseout="change()"><br>
+<img src="../img/stars.jfif" id="i" onmouseover="this.src='../img/aussie.png'" onmouseout="this.src='../img/stars.jfif'">
+</body>
+
+</html>

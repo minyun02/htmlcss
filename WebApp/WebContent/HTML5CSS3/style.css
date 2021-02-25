@@ -3,5 +3,5 @@
 /*링크 스타일*/
 a:link{text-decoration:none;color:grey;}/*링크가 걸린 상태일때*/
 a:visited{text-decoration:none;color:grey;}/*방문했을때*/
-a:hover{text-decoration:none; font-weight:bold;color:grey;}/*마우스롤 오버했을때*/
-a:active{text-decoration:underline; color:red;}/*마우스를 누르고 있을때*/
+a:hover{text-decoration:none; color:black;}/*마우스롤 오버했을때*/
+a:active{text-decoration:none; color:grey;}/*마우스를 누르고 있을때*/
