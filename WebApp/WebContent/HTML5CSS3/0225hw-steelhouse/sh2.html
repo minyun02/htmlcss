@@ -4,35 +4,114 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	ul, li{padding:0px; margin:0px; list-style-type:none;}
 	body{background-color: rgb(146, 204, 101); margin:0px; padding:0px;}
-	#mainDiv{
-		width:1200px;
-		background-color: white;
-		margin: 0 auto; padding:0;
-	}
-	#mainDiv>img{margin:0px; padding:0px;}
-	#mainDiv>img:first-child{padding-left:170px;}
-	#mainDiv>img:nth-child(5){padding-right:100px;}
+	#mainDiv{width:1200px; margin:0 auto; padding:0px; background:white;}
 	
+	#topDiv{padding-left: 165px;}
+	#topDiv img{margin:0px; padding:0px; vertical-align:top;}
+	
+	#menuDiv{overflow:auto; background-color: #63BB27;}
+	#menuDiv img{float:left;}
+	#menu li{float:left; height:70px; text-align:center; color:white; font-weight:bold;
+		padding:0px 45px; line-height:70px; font-size:17px;
+	}
+	#menu li:nth-child(2){padding-left:20px;}
+	#menu li:nth-child(3){padding-left:0px;}
+	#menu li:nth-child(4){padding-left:15px;}
+	#menu li:nth-child(5){padding-left:30px;}
+	
+	
+	#bottomDiv{padding-left: 165px;}
+	
+	#new{width: 400px; margin:0px 80px 0px 165px; float:left;}
+	#new input{width:368px; margin:0 0 10px 0; height:25px;
+		border:2px solid #ddd;
+	}
+	#gallery{width: 400px; height:160px; margin-left:600px;
+		padding-left:50px;
+	}
+	#gallery img{width:70px; padding:5px 5px;}
+	#gallery>ul li{float:left; font-size:10px; margin:0 5px 0 5px; text-align:center;}
+	
+	#footer{height:220px;}
+	#footer img{padding-left: 165px;}
 </style>
 </head>
 <body>
 <div id="mainDiv">
-	<img src="css_gaon_02.jpg">
-	<img src="css_gaon_03.jpg">
-	<img src="css_gaon_04.jpg">
-	<img src="css_gaon_05.jpg">
-	<img src="css_gaon_06.jpg">
-	<div>
-	<img src="css_gaon_08.jpg">
-	
+	<div id="topDiv">
+		<img src="css_gaon_02.jpg">
+		<img src="css_gaon_03.jpg">
+		<img src="css_gaon_04.jpg">
+		<img src="css_gaon_05.jpg">
+		<img src="css_gaon_06.jpg">
 	</div>
-	<img src="css_gaon_15.jpg">
-	<img src="css_gaon_16.jpg">
-	<img src="css_gaon_17.jpg">
-	<img src="css_gaon_18.jpg">
-	<img src="css_gaon_19.jpg">
+	<div id="menuDiv">
+		<img src="css_gaon_08.jpg">
+		<ul id="menu">
+			<li>COMPANY</li>
+			<li>STEELHOUSE</li>
+			<li>ARCHITECTURE</li>
+			<li>INTERIOR</li>
+			<li>COMMUNITY</li>
+		</ul>	
+	</div>
+	<div id="bottomDiv">	
+		<img src="css_gaon_15.jpg">
+		<img src="css_gaon_16.jpg">
+		<img src="css_gaon_17.jpg">
+		<img src="css_gaon_18.jpg">
+		<img src="css_gaon_19.jpg">
+	</div>
 	
-</div>
+	<div id="new">
+		<img src="css_gaon_22.jpg">
+		<input type="text" value="Q1. 자주하는 질문" id="q1">
+		<input type="text" value="Q2. 질문과 답변">
+		<input type="text" value="Q3. 채용안내">
+	</div>
+	
+	<img src="css_gaon_24.jpg">
+	<div id="gallery">
+		<ul>
+			<li> 
+				<img src="g1.png"><br>
+				멋진 인테리어<br>
+			</li>
+			<li> 
+				<img src="g2.png"><br>
+				이쁜실내<br>
+			</li>
+			<li> 
+				<img src="g3.png"><br>
+				아파트 단지<br>
+			</li>
+			<li> 
+				<img src="g2.png"><br>
+				회의실 내부<br>
+			</li>
+			<li> 
+				<img src="g1.png"><br>
+				멋진 인테리어<br>
+			</li>
+			<li> 
+				<img src="g2.png"><br>
+				이쁜 실내<br>
+			</li>
+			<li> 
+				<img src="g3.png"><br>
+				아파트 단지<br>
+			</li>
+			<li> 
+				<img src="g3.png"><br>
+				회의실 내부<br>
+			</li>
+		</ul>
+	</div>
+	<div id="footer">
+		<img src="css_gaon_31.jpg">
+	</div>
+</div>	
 </body>
 </html>
