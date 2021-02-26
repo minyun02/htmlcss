@@ -39,9 +39,14 @@
 	function change(){
 		document.getElementById("i").src="../img/stars.jfif";
 	}
+	function welcome(){
+		alert("홈페이지에 오신것을 환영합니다.")
+	}
+	//함수호출
+	//welcome();
 </script>
 </head>
-<body>
+<body onload="welcome()">
 수 : <input type="text" id="num">
 수 : <input type="text" id="num2">
 <input type="button" value="구구단" onclick="gugudan()">
