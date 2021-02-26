@@ -24,9 +24,13 @@
 	document.write("<br>", timeTxt);
 	document.write("<br>요일->"+ dateTime.getDay());
 	
+	
 	//마지막날 
 	var date = new Date(dateTime.getFullYear(), dateTime.getMonth()+1, 0);
 	document.write("마지막날 -->"+ date.getDate());
+	
+	var today = new Date('2021-02-01').getDay();
+	document.write("<br>2월 첫날 요일 -->"+ today);
 </script>
 </head>
 <body>
