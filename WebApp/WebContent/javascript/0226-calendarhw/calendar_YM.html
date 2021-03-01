@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트로 달력 만들기</title>
+<style>
+	table{
+		margin: 0 auto;
+	}
+	td{
+		width:50px;
+		height:30px;
+		border: 1px solid gray;
+		text-align: center;
+	}
+	body{
+		padding:0;
+		margin:0;
+		background:grey;
+	}
+	#divImg, #yearMonth, #title, #days{
+		width: 500px;
+		margin:0 auto;
+		padding:0;
+		text-align: center;
+	}
+	#yearMonth, #title, #days{
+		background: white;
+	}
+	
+	
+</style>
+<script>
+	function setCalendar(){
+		var dateTime = new Date();
+		console.log(dateTime)
+		
+		var year = dateTime.getFullYear();
+		console.log(year)
+		var month = dateTime.getMonth()+1;
+		console.log(month)
+		
+		document.getElementById("yearMonth").innerHTML = year + "년  " + month + "월";
+		
+		//3월 마지막 날
+		var lastDay = new Date(dateTime.getFullYear(), dateTime.getMonth()+1, 0);
+		
+		//3월 첫날 요일
+		var firstDay = new Date('2021-03-01').getDay();
+		console.log(firstDay)
+		
+		var row = null;
+		row = document.getElementById('days').insertRow();
+		//공백출력
+		for(var i=0; i<firstDay; i++){
+			cell = row.insertCell("0"); 
+		}
+		
+		console.log(lastDay.getDate())
+		//날짜 출력
+		for(var j=1; j<=lastDay.getDate(); j++){
+			cell = row.insertCell();
+			cell.innerHTML = j;
+			firstDay = firstDay + 1;
+			console.log("asdffsfs")
+			if(firstDay%7==0){
+				row = days.insertRow();
+			}
+		}
+		
+	}
+</script>
+</head>
+<body onload="setCalendar()">
+	<div id="divImg">
+		<img src="../../img/san.png">
+	</div>
+	<div id="yearMonth"></div>
+	<div id="title">
+		<table id="days">
+			<tr> 
+				<td>SUN</td>
+				<td>MON</td>
+				<td>TUE</td>
+				<td>WED</td>
+				<td>THU</td>
+				<td>FRI</td>
+				<td>SAT</td>
+			</tr>
+		</table>
+	</div>	
+</body>
+</html>
