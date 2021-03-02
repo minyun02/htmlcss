@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	function scrollMove(){
+		window.scrollBy(0,10)
+	}
+	//var n=1;
+	//var timer;
+	//function scrollMove(){
+	//	window.scrollTo(0, n);
+	//	n+=50;
+	//	var scrollY = window.scrollY;
+	//	if(scrollY>1384){
+	//		console.log('y->', scrollY)
+	//		n-=50;
+	//	}
+	//}
+	function startNumber(){
+		timer = setInterval("scrollMove()", 1000);
+	}
+</script>
+</head>
+<body onload="startNumber()">
+<button>스크롤 이동</button>
+<div>
+	<script>
+		for(var i=1; i<7; i++){
+			document.write("<img src=0"+i+".jpg><br>");
+		}
+	</script>
+</div>
+</body>
+</html>
