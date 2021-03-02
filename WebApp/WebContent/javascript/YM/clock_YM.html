@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>자바스크립트 시계만들기</title>
+<style>
+	body{
+		margin: 0; padding:0;
+	}
+	div{
+		width: 500px;
+		margin: 0 auto;
+		background: lightblue;
+		font-size: 1.5em;
+		text-align: center;
+	}
+	h1{
+		margin:0;
+		padding:0;
+	}
+</style>
+<script>
+	function setClock(){
+		var time = new Date();
+		var hour = time.getHours();
+		var minute = time.getMinutes();
+		var second = time.getSeconds();
+		
+		document.getElementById("clock").innerHTML = 
+			hour + " : " + minute + " : " + second;
+		var repeat = setTimeout("setClock()", 1000);
+	}
+	
+</script>
+</head>
+<body onload="setClock()">
+	<div>
+		<h1>시계</h1>
+	</div>
+	<div id="clock">
+	</div>
+</body>
+</html>
