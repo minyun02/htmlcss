@@ -32,14 +32,13 @@
 		margin: 0 auto;
 		width: 900px;
 		height: 100%;
-		
 		position: absolute;
-		left: 35%;
-		top: 202px;
+		left: 50%;
+		top: 33%;
+		transform: translate(-30%, 1%);
 	}
 	#hiddenDiv{
 		width: 1100px;
-		margin: 0 auto;
 		overflow:auto;
 	}
 	#leftDiv{
@@ -74,16 +73,25 @@
 	//스크롤바 위치 구해서 고정하기
 	function setScrollBar(){
 		var scrollY = window.scrollY;
-		console.log(scrollY)
 		if(scrollY>=204){
-			hiddenDiv.style.position = "sticky";
+			hiddenDiv.style.position = "fixed";
 			hiddenDiv.style.top = "0px";
+		}
+		if(scrollY<=203){
+			console.log("asdfsfas-->", scrollY)
+			hiddenDiv.style.position = "absolute";
+			hiddenDiv.style.left = "21.2%";
+			hiddenDiv.style.top = "21.4%";
 			
 		}
 	}
+	var timer;
+	function start(){
+		timer = setInterval("setScrollBar()", 1);
+	}
 </script>
 </head>
-<body onload="setImage()" onmouseover="setScrollBar()">
+<body onload="setImage(); start()">
 <header>
 	<div id="blueDiv" onclick="style.display='none'"></div>
 	<div id="pinkDiv">
