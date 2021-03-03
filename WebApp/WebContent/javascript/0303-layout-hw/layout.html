@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>layout 숙제</title>
+<style>
+	body{margin:0; padding:0;}
+	/* Header=================================== */
+	hr{
+		margin:0;
+		border: 1px solid blue;
+	}
+	#blueDiv, #pinkDiv{
+		margin: 0 auto;
+		width: 900px;
+		height: 100px;
+	}
+	#blueDiv{
+		background-color: lightblue;
+	}
+	#pinkDiv{
+		background-color: pink;
+	}
+	#text{
+		width:500px;
+		font-size:2em;
+		border: 1px solid grey;
+		color: grey;
+	}
+	/* Section=================================== */
+	#imgLst{
+		margin: 0 auto;
+		width: 900px;
+		height: 100%;
+		
+		position: absolute;
+		left: 35%;
+		top: 202px;
+	}
+	#hiddenDiv{
+		width: 1100px;
+		margin: 0 auto;
+		overflow:auto;
+	}
+	#leftDiv{
+		width: 100px;
+		height: 300px;
+		background-color: yellow;
+		float: left;
+	}
+	#fixedDiv{
+		width: 900px;
+		height: 100px;
+		float: left;
+		color: white;
+	}
+	#rightDiv{
+		width: 100px;
+		height: 600px;
+		background-color: orange;
+		float: left;
+	}
+</style>
+<script>
+	//이미지 넣기 메소드
+	function setImage(){
+		var tag = "";
+		for(var i=1; i<=7; i++){
+			tag += "<img src='0" + i + ".png'>";
+		}
+		console.log(tag)
+		document.getElementById("imgLst").innerHTML = tag;
+	}
+	//스크롤바 위치 구해서 고정하기
+	function setScrollBar(){
+		var scrollY = window.scrollY;
+		console.log(scrollY)
+		if(scrollY>=204){
+			hiddenDiv.style.position = "sticky";
+			hiddenDiv.style.top = "0px";
+			
+		}
+	}
+</script>
+</head>
+<body onload="setImage()" onmouseover="setScrollBar()">
+<header>
+	<div id="blueDiv" onclick="style.display='none'"></div>
+	<div id="pinkDiv">
+		<input type="text" value="자바스크립트로 레이아웃 연습중" id="text">
+	</div>
+</header>
+<section>
+	<hr>
+	<div id="hiddenDiv">
+		<div id="leftDiv">aa</div>
+		<div id="fixedDiv"></div>
+		<div id="rightDiv">bb</div>
+	</div>
+	<div id="imgLst"></div>
+</section>
+</body>
+</html>

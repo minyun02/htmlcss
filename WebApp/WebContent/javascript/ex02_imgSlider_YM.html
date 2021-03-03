@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	
+	#mainDiv{
+		margin: 400px auto;
+		width: 1000px;
+		height: 120px;
+	}
+	#mainDiv input{
+		float: left;
+		height: 95%;
+	}
+	#imgDiv{
+		width: 902px;
+		height: 97%;
+		float:left;
+		overflow: scroll;
+		margin: 0;
+		padding: 0;
+		white-space: nowrap;
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+</style>
+<script>
+	var left;
+	var right;
+	var scroll;
+	function moveLeft(){
+		scroll = document.getElementById('imgDiv').scrollLeft += 10;
+		console.log(scroll)
+		if(scroll>730){
+			startRight();
+		}
+		
+	}
+	function startLeft(){
+		clearInterval(right);
+		left = setInterval("moveLeft()", 100);
+	}
+	
+	function moveRight(){
+		scroll = document.getElementById('imgDiv').scrollLeft -= 10;
+		if(scroll<1){
+			startLeft();
+		}
+	}
+	function startRight(){
+		clearInterval(left);
+		right = setInterval("moveRight()", 100);
+	}
+	function stop(){
+		clearInterval(left);
+		clearInterval(right);
+	}
+</script>
+</head>
+<body onload="startLeft()">
+<div id="mainDiv">
+	<input type="button" value="<" id="left" onclick="startLeft()">
+	<div id="imgDiv" onmouseover="stop()" onmouseout="start()">
+		<img src="../img/movie01.png"><img src="../img/movie02.png"><img src="../img/movie03.png"><img src="../img/movie04.png"><img src="../img/movie05.png"><img src="../img/movie06.png"><img src="../img/movie07.png"><img src="../img/movie08.png"><img src="../img/movie09.png"><img src="../img/movie10.png"><img src="../img/movie11.png"><img src="../img/movie12.png"><img src="../img/movie13.png"><img src="../img/movie14.png"><img src="../img/movie15.png"><img src="../img/movie16.png"><img src="../img/movie17.png"><img src="../img/movie18.png"><img src="../img/movie19.png"><img src="../img/movie20.png">	
+	</div>
+	<input type="button" value=">" id="right" onclick="startRight()">
+</div> 
+</body>
+</html>
