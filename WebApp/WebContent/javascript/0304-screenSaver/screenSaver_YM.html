@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+	body{margin:0;}
 	#main{
 		display: block;
 	}
@@ -22,51 +23,88 @@
 		height: 100px;
 	}
 	#screenSave{
-		width: 1000px;
-		margin: 0 auto;
+		width: 100%;
 		text-align: center;
 		font-size: 2em;
 		color: yellow;
 		display: none;
+		position: absolute;
 	}
 	#move{
 		position: absolute;
 		width: 200px;
+		height: 60px;
 		display: none;
 	}
 </style>
 <script>
+	//이미지 변경을 위한 변수들 -> 학원카페에서 본 방법 -> 이미지 객체를 만들고 .src로 이미지를 넣어놓고 불어올꺼다.
 	img1 = new Image();
-	img1.src = "../../img/123.png";
+	img1.src = "../../img/movie20.png";
 	img2 = new Image();
+	img2.src = "../../img/movie19.png";
+	img3 = new Image();
+	img3.src = "../../img/movie18.png";
+	img4 = new Image();
+	img4.src = "../../img/movie17.png";
+	img5 = new Image();
+	img5.src = "../../img/movie16.png";
+	img6 = new Image();
+	img6.src = "../../img/movie15.png";
+	img7 = new Image();
+	img7.src = "../../img/movie14.png";
+	img8 = new Image();
+	img8.src = "../../img/movie13.png";	
+	//선택한 사진 전체화면 설정
 	function setBG(imgName){
-		var wid=window.innerWidth;
-		var hei=window.innerHeight;
-		console.log(wid+"DF"+hei);
-		document.body.background = eval(imgName + ".src")
-		document.body.style.backgroundRepeat = "no-repeat";
-		document.body.style.backgroundSize = "100%";
-		document.getElementById("main").style.display = "none";
-		document.getElementById("screenSave").style.display = "block";
-		document.getElementById("move").style.display = "block";
+		document.body.background = eval(imgName + ".src") //학원카페에 나온 방법인데 body의 배경을 function으로 전달받은 매개변수로 지정하기 -> eval은 뭔지 모르겠네
+		document.body.style.backgroundRepeat = "no-repeat"; //이걸 안해주면 바둑판 배경화면으로 설정되니까 반복은 없앤다.
+		document.body.style.backgroundSize = "100%";	//body에 꽉찬 배경을 넣어주기 위해 100%..
+		document.getElementById("main").style.display = "none"; //처음 화면에 나오는 사진들이 들어있는 div를 안보이게 설정
+		document.getElementById("screenSave").style.display = "block"; //숨겨놓았던 screenSave를 보여줘서 "아무키나 누르시면 화면보호기가 종료됩니다." 노랗게 보여주기
+		document.getElementById("move").style.display = "block"; //숨겨놓은 불사조도 보이게 바꾼다.
 	}
+	//백그라운드 사진없애기
 	function removeBG(){
-		document.body.background = 'none';
-		document.getElementById("main").style.display = "block";
-		document.getElementById("screenSave").style.display="none";
-		document.getElementById("move").style.display = "none";
+		document.body.background = 'none'; //배경 지우기
+		document.getElementById("main").style.display = "block"; //배경 지정하면서 숨긴 사진들 넣어놓은 div다시 보여주기
+		document.getElementById("screenSave").style.display="none"; //노란글씨 안보이게 설정
+		document.getElementById("move").style.display = "none"; //불사조도 안보이게 설정
 	}
+	//스크린 넓이 높이 구하기
+	var sWidth = window.innerWidth; //불사조가 뛰어 놀수있는 넓이(스크린 넓이)
+	var sHeight = window.innerHeight; //불사조가 날아다닐 높이(스크린 높이)
+	var moveX = 0;
+	var moveY = 0;
+	var numX = 10;
+	var numY = 15;
+	//새 움직이기
 	function move(){
+		console.log(sWidth+"----"+sHeight); //그냥 콘솔에 찍어보기
+		moveX = moveX + numX;
+		moveY = moveY + numY;
+		document.getElementById("move").style.left = moveX + 'px';
+		document.getElementById("move").style.top = moveY + 'px';
+		if((moveX+200)>=sWidth) numX = -10;
+		if(moveX==0) numX = 10;
 		
+		if((moveY+70)>=sHeight) numY = -15;
+		if(moveY==0) numY = 15;
+		
+	}
+	//Interval
+	var timer;
+	function startMoving(){
+		timer = setInterval("move()", 100);
 	}
 </script>
 </head>
-<body onkeyup="removeBG()">
+<body onkeyup="removeBG()" onload="startMoving()">
 <div id="main">
 	<div id="head">
 		이미지를 클릭하면 화면보호기가 실행됩니다.
 		<div id="imgLst">
-			<img src="../../img/movie20.png" onclick="setBG('img1')"><img src="../../img/movie19.png"><img src="../../img/movie18.png"><img src="../../img/movie17.png"><img src="../../img/movie16.png"><img src="../../img/movie15.png"><img src="../../img/movie14.png"><img src="../../img/movie13.png">
+			<img src="../../img/movie20.png" onclick="setBG('img1')"><img src="../../img/movie19.png" onclick="setBG('img2')"><img src="../../img/movie18.png" onclick="setBG('img3')"><img src="../../img/movie17.png" onclick="setBG('img4')"><img src="../../img/movie16.png" onclick="setBG('img5')"><img src="../../img/movie15.png" onclick="setBG('img6')"><img src="../../img/movie14.png" onclick="setBG('img7')"><img src="../../img/movie13.png" onclick="setBG('img8')"> 
 		</div>
 	</div>
 	<div id="section">
