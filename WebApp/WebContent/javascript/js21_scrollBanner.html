@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+ 	body{
+ 		margin:0; 
+ 	}	
+	#header1, #header2{
+		height: 100px;
+		width: 1000px;
+		margin: 0 auto;
+	}
+	#header1{
+		background-color: #ddd;
+	}
+	#header2{
+		background-color: pink;
+	}
+	#bar{
+		height: 3px;
+		background-color: blue;
+		position: relative;
+		z-index: 100;
+	}
+	#content{
+		width: 1000px;
+		margin: 0 auto;
+		position: relative; /* conten div가 relative가 되어야 banner들이 absoluete일때 기준이 된다. 아니면 document가 absolute 기준이 됨.*/
+	}
+	/*배너*/
+	#leftBanner, #rightBanner{
+		position: absolute;
+		width: 100px;
+		background-color: lightblue;
+	}
+	#leftBanner{
+		left: -100px;
+		top: 0px; /*conten div가 기준이니까 0*/
+		height: 300px;
+	}
+	#rightBanner{
+		left: 1000px;
+		top: 0px;
+		height: 400px;
+	}
+</style>
+<script>
+	function event1(){
+		document.getElementById("header1").addEventListener('click', function(){
+			document.getElementById("header1").style.display = 'none';
+		})
+	}
+	function bannerMove(){
+		var scrollY = window.scrollY//현재 스크롤 바 위치
+		//헤더의 높이 구하기
+		var top = 200;
+		if(document.getElementById("header1").style.display=="none"){
+			top = 100;
+		}
+		var bar = document.getElementById("bar").style;
+		var lBanner = document.getElementById("leftBanner").style;
+		var rBanner = document.getElementById("rightBanner").style;
+
+		if(scrollY > top){ //스크롤바가 top보다 내려갔을때
+			bar.top = scrollY - top + "px";
+			lBanner.top = scrollY - top + "px";
+			rBanner.top = scrollY - top + "px";
+		}else{// 스크롤바가 top보다 덜 내려갔을때
+			bar.top = "0px";
+			lBanner.top = "0px";
+			rBanner.top = "0px";
+		}
+	}
+	var idx = 1;
+	function txtTyping(){
+		var str = "타이핑 문자처리 하기 연습중~~";
+		var cutText = str.substr(0, idx++); //str.substring(0, idx++); str.slice(0, idx++);
+		//document.getElementById("txt").placeholder = cutText;
+		document.getElementById("txt").value = cutText;
+		
+		//문자열 초기화 -> 문자열이 끝나면 더 늘어나면 안되니까
+		if(idx>str.length){
+			idx=1;
+		}
+	}
+</script>
+</head>
+<body onload="event1(); setInterval('txtTyping()', 300)" onscroll="bannerMove()">
+<div id="header1"></div>
+<div id="header2">
+	<input type="text" id="txt">
+</div>
+<div id="bar"></div>
+<div id="content">
+	<img src="0303-layout-hw/01.png">
+	<img src="0303-layout-hw/02.png">
+	<img src="0303-layout-hw/03.png">
+	<img src="0303-layout-hw/04.png">
+	<img src="0303-layout-hw/05.png">
+	<img src="0303-layout-hw/06.png">
+	<img src="0303-layout-hw/07.png">
+	<!-- 사이드 배너 -->
+	<div id="leftBanner">asdf</div>
+	<div id="rightBanner">fdsa</div>
+</div>
+</body>
+</html>

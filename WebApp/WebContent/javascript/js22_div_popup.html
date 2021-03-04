@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#content{
+		width: 1000px; margin: 0 auto;
+	}
+	#content>img{width:48%;}
+	
+	/*팝업스타일*/
+	#popup{
+		width: 400px;
+		border: 1px solid gray;
+		background-color: #fff;
+		position: absolute;
+	}
+	#popup>div{
+		float: left;
+	}
+	#pTitle{
+		width: 90%;
+		height: 40px;
+		line-height: 40px;
+		background-color: pink;
+	}
+	#pClose{
+		width: 10%;
+		height: 40px;
+		line-height: 40px;
+		background-color: #ddd;
+		text-align: center;
+	}
+</style>
+<script>
+	var popup;
+	//팝업좌표 설정
+	function setXY(){
+		var cookie = document.cookie;
+		if(cookie.indexOf("event") == -1){
+			popup = document.getElementById("popup").style;
+			popup.left = "300px"
+			popup.top = "200px"
+		}
+	}
+	//팝업 닫기
+	function setPopupClose(){
+		popup.display = "none";
+	}
+	//팝업 이동
+	var eventX, eventY, divX, divY, moveX, moveY, flag=false;
+	function setMoveStart(){
+		//드래그 시작
+		flag=true;
+		
+		//마우스를 누르면 이벤트가 발생한 곳의 x, y좌표를 구한다.
+		eventX = event.clientX;
+		eventY = event.clientY;
+		
+		//팝업창의 좌표 구하기
+		divX = parseInt(popup.left);
+		divY = parseInt(popup.top);
+		
+		console.log('eventX->', eventX, 'eventY->', eventY);
+		console.log('divX->', divX, 'divY->', divY);
+		
+		//마우스를 이동하면 이동한 곳은 이벤트 x, y좌표를 구한다.
+		document.onmousemove = setMouseDrag;
+	}
+	function setMouseDrag(){
+		if(flag){
+			moveX = event.clientX;
+			moveY = event.clientY;
+			
+			//나중에 발생한 이벤트 좌표 - 이전에 발생한 이벤트 좌표
+			var x = moveX - eventX;
+			var y = moveY - eventY;
+			
+			//팝업 이동하기
+			popup.left = divX + x + "px";
+			popup.top = divY + y + "px";
+		}
+	}
+	function setFlag(){
+		flag = false;
+	}
+	document.onmouseup = setFlag;
+	
+	//쿠기 설정
+	function setCookie(){
+		if(document.getElementById("checkbox").checked){
+			var now = new Date();
+			now.setDate(now.getDate()+1);
+			
+			document.cookie = "event=3월;path=/;expires="+now+";";
+		}
+	}
+	function setPopupOpen(){
+		var cookie = document.cookie;
+		if(!cookie.indexOf("event") == -1){
+			document.getElementById("popup").style.display = "none";
+		}
+	}
+</script>
+</head>
+<body onload="setXY()">
+<div id="content">
+	<h1>DIV를 이용한 팝업 만들기</h1>
+	<iframe src="js20_imgslider.html" width="920px" height="134px" frameborder="0"></iframe>
+	<hr>
+	<img src="../img/06.jpg">
+	<img src="../img/07.jpg">
+	<img src="../img/08.jpg">
+	<img src="../img/09.jpg">
+	<img src="../img/10.jpg">
+	<img src="../img/11.jpg">
+</div>
+
+<!-- 팝업 div만들기 -->
+<div id="popup">
+	<div id="pTitle" onmousedown="setMoveStart()">이벤트</div>
+	<div id="pClose" onclick="setPopupClose()">X</div>
+	<div>
+		<img src="../img/09.jpg">
+	</div>
+	<div>
+		<input type="checkbox" value="cookie" id="checkbox" onclick="setCookie()">오늘은 그만보기
+	</div>
+</div>
+</body>
+</html>

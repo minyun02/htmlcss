@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	#main{
+		display: block;
+	}
+	#head, #section{
+		width: 1000px;
+		margin: 0 auto;
+		border: 1px solid gray;
+		text-align: center;	
+	}
+	#imgLst{
+		padding:5px;
+	}
+	#imgLst img{
+		border: 1px solid gray;
+		width: 100px;
+		height: 100px;
+	}
+	#screenSave{
+		width: 1000px;
+		margin: 0 auto;
+		text-align: center;
+		font-size: 2em;
+		color: yellow;
+		display: none;
+	}
+	#move{
+		position: absolute;
+		width: 200px;
+		display: none;
+	}
+</style>
+<script>
+	img1 = new Image();
+	img1.src = "../../img/123.png";
+	img2 = new Image();
+	function setBG(imgName){
+		var wid=window.innerWidth;
+		var hei=window.innerHeight;
+		console.log(wid+"DF"+hei);
+		document.body.background = eval(imgName + ".src")
+		document.body.style.backgroundRepeat = "no-repeat";
+		document.body.style.backgroundSize = "100%";
+		document.getElementById("main").style.display = "none";
+		document.getElementById("screenSave").style.display = "block";
+		document.getElementById("move").style.display = "block";
+	}
+	function removeBG(){
+		document.body.background = 'none';
+		document.getElementById("main").style.display = "block";
+		document.getElementById("screenSave").style.display="none";
+		document.getElementById("move").style.display = "none";
+	}
+	function move(){
+		
+	}
+</script>
+</head>
+<body onkeyup="removeBG()">
+<div id="main">
+	<div id="head">
+		이미지를 클릭하면 화면보호기가 실행됩니다.
+		<div id="imgLst">
+			<img src="../../img/movie20.png" onclick="setBG('img1')"><img src="../../img/movie19.png"><img src="../../img/movie18.png"><img src="../../img/movie17.png"><img src="../../img/movie16.png"><img src="../../img/movie15.png"><img src="../../img/movie14.png"><img src="../../img/movie13.png">
+		</div>
+	</div>
+	<div id="section">
+		<img src="../../img/13.jpg"><img src="../../img/12.jpg"><img src="../../img/11.jpg"><img src="../../img/10.jpg">
+		<img src="../../img/09.jpg"><img src="../../img/08.jpg"><img src="../../img/07.jpg"><img src="../../img/06.jpg">
+		<img src="../../img/05.jpg"><img src="../../img/04.jpg"><img src="../../img/03.jpg"><img src="../../img/02.jpg">
+	</div>
+</div>
+<div id="screenSave">아무키나 누르시면 화면보호기가 종료됩니다.</div>
+<img src="wingani.gif" id="move">
+</body>
+</html>
