@@ -90,7 +90,6 @@
 		
 		if((moveY+70)>=sHeight) numY = -15;
 		if(moveY==0) numY = 15;
-		
 	}
 	//Interval
 	var timer;
@@ -99,7 +98,7 @@
 	}
 </script>
 </head>
-<body onkeyup="removeBG()" onload="startMoving()">
+<body onkeypress="removeBG()" onload="startMoving()">
 <div id="main">
 	<div id="head">
 		이미지를 클릭하면 화면보호기가 실행됩니다.

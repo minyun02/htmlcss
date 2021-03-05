@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0305 금요일 숙제</title>
+<style>
+	#content{
+		width: 700px;
+		height: 100%;
+		margin: 0 auto;
+		background-color: lightblue;
+	}
+	#imgLst{
+		width: 90%;
+	}
+	#imgLst div>img{
+		border: 1px solid grey;
+		margin-bottom: 1px;
+		background-color: #ddd;
+	}
+	#popup{
+		width: 400px;
+		border: 1px solid gray;
+		background-color: #fff;
+		position: absolute;
+	}
+	#pTitle{
+		background-color: grey;
+		text-align: center;
+	}
+</style>
+<script>
+	//이미지 넣어주는 함수 -> 1~15개 이미지를 content div에 넣어준다 -> onclick 이벤트도 넣어준다
+	var tag="";
+	function setImage(){
+		for(var j=0; j<4; j++){
+			//15개 이미지가 나오는걸 3번 나오게 한다.
+			for(var i=1; i<=9; i++){
+				tag += "<img src='../../../img/icon0"+i+".png' width='120' height='120' onclick='popupOpen()'>"
+			}
+			for(var i=10; i<=15; i++){
+				tag += "<img src='../../../img/icon"+i+".png' width='120' height='120' onclick='popupOpen()'>"
+			}
+			document.getElementById("imgLst").innerHTML = "<div>"+tag+"</div>";
+		}
+	}
+	function popupOpen(){
+		
+	}
+</script>
+</head>
+<body onload="setImage()">
+<div id="content">
+	<div id="imgLst"></div>
+</div>
+<!-- 팝업창 -->
+<div id="popup">
+	<div id="pTitle">123</div>
+	<div id="pImage">3453</div>
+</div>
+</body>
+</html>
