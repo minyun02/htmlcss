@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>0305 금요일 숙제</title>
 <style>
+	body{margin:0;}
 	#content{
 		width: 700px;
 		height: 100%;
@@ -18,35 +19,104 @@
 		margin-bottom: 1px;
 		background-color: #ddd;
 	}
+	#popup, #screenDiv{
+		position: absolute;
+	}
 	#popup{
 		width: 400px;
 		border: 1px solid gray;
 		background-color: #fff;
-		position: absolute;
+		display: none;
+		z-index: 500;
 	}
 	#pTitle{
 		background-color: grey;
 		text-align: center;
 	}
+	#pImage>img{
+		width: 400px;
+	}
+	#screenDiv{
+		background-color: #ddd;
+		opacity: 60%;
+		display: none;
+		z-index: 400;
+	}
 </style>
 <script>
+	var wWidth;
+	var wHeight;
 	//이미지 넣어주는 함수 -> 1~15개 이미지를 content div에 넣어준다 -> onclick 이벤트도 넣어준다
 	var tag="";
 	function setImage(){
-		for(var j=0; j<4; j++){
+		for(var j=0; j<2; j++){
 			//15개 이미지가 나오는걸 3번 나오게 한다.
 			for(var i=1; i<=9; i++){
-				tag += "<img src='../../../img/icon0"+i+".png' width='120' height='120' onclick='popupOpen()'>"
+				tag += "<img src='../../../img/icon0"+i+".png' width='120' height='120' onclick='popupOpen(this.src)'>"
 			}
 			for(var i=10; i<=15; i++){
-				tag += "<img src='../../../img/icon"+i+".png' width='120' height='120' onclick='popupOpen()'>"
+				tag += "<img src='../../../img/icon"+i+".png' width='120' height='120' onclick='popupOpen(this.src)'>"
 			}
 			document.getElementById("imgLst").innerHTML = "<div>"+tag+"</div>";
 		}
 	}
-	function popupOpen(){
-		
+	var eventX, eventY, divX, divY, moveX, moveY, flag=false;
+	var popup;
+	function popupOpen(imgName){
+		popup = document.getElementById("popup").style;
+		eventY = event.clientY;
+		eventX = event.clientX;
+		popup.display = "block";
+		popup.top = eventY+"px";
+		console.log("Y-->",eventY)
+		popup.left = (eventX-200)+"px";
+		console.log("X-->",eventX)
+		setPopup(imgName);
+		setSreenDiv();
 	}
+	function popupClose(){
+		popup.display = "none";
+		screenDiv.style.display = "none";
+	}
+	function setPopup(imgName){
+		var imgIndex = imgName.indexOf("icon");
+		var nameSlice = imgName.slice(33);
+		document.getElementById("pTitle").innerHTML = nameSlice;
+		document.getElementById("pImage").innerHTML = "<img src='"+imgName+"'>"		
+	}
+	function setSreenDiv(){
+		var screen = document.getElementById("screenDiv").style;
+		wWidth = window.innerWidth;
+		screen.display = "block";
+		screen.top = "0px";
+		screen.left = "0px";
+		screen.width = wWidth-15+"px";
+		screen.height = "1525px";
+	}
+	function setMoveStart(){
+		flag = true;
+		
+		divX = parseInt(popup.left);
+		divY = parseInt(popup.top);
+		
+		document.onmousemove = setMouseDrag;
+	}
+	function setMouseDrag(){
+		if(flag){
+			moveX = event.clientX;
+			moveY = event.clientY;
+			
+			var x = moveX - eventX;
+			var y = moveY - eventY;
+			
+			popup.left = divX + x +"px";
+			popup.top = divY + y +"px";
+		}
+	}
+	function setFlag(){
+		flag = false;
+	}
+	document.onmouseup = setFlag;
 </script>
 </head>
 <body onload="setImage()">
@@ -54,9 +124,11 @@
 	<div id="imgLst"></div>
 </div>
 <!-- 팝업창 -->
-<div id="popup">
-	<div id="pTitle">123</div>
-	<div id="pImage">3453</div>
+<div id="popup" >
+	<div id="pTitle" onmousedown="setMoveStart()"></div>
+	<div id="pImage" onclick="popupClose()"></div>
 </div>
+<!-- 회색으로 가려줄 div -->
+<div id="screenDiv"></div>
 </body>
 </html>
