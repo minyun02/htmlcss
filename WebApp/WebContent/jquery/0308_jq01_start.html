@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0308</title>
+<!-- 
+	jquery는 javascript 라이브러리이다.
+	
+	https://jquery.com/download/ 에서 다운로드
+	
+	html/css/javascript 실행부  jqeury 실행
+	javascript 이벤트는 jquery 실행 후 실행됨...
+ -->
+<!--  명령어를 쓰기 전에 jquery 소스링크를 걸어준다 -->
+<script src="lib/jquery-3.6.0.min.js"></script>
+ <script>
+ 	alert("자바스크립트");
+ 	
+ 	//jquery 코드 -> 모든게 이벤트에의해 실행된다.
+ 	//(선택자) -> 이벤트 종류, ready() -> body 로딩(실행)이 끝나면 jqeury ready 이벤트 속 함수 실행
+ 	$(document).ready(
+ 		function(){
+ 			//jqeury 실행부
+ 			alert("jqeury 실행부")
+ 		}		
+ 	);  
+ </script>
+</head>
+<body onload="alert('onload실행됨.....')">
+<h1>html 문서.....</h1>
+</body>
+</html>

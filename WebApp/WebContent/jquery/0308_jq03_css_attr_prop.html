@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0308</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		//jquery 실행부
+		
+		//jqeury 선택자 : 태그, 클래스, 아이디....
+		
+		//스타일시트 -> css("속성","값") fontSize(js에서만)
+		$("input").css("font-size","2em"); //태그선택자
+		$("#username").css("color","green"); //id선택자
+		$(".c1").css("background-color","pink"); //class 선택자
+		
+		//jqeury에서 html 속성 처리 -> attr("속성", "값") -> 속성과 속성값이 존재할때
+		$("img").attr("src","../img/icon05.png");
+		$(".c1").attr('value', '홍길동');
+		
+		//html의 속성 처리 -> 속성명은 존재하나 속성값이 없는 속성들
+		$("#username").prop("readonly", true);
+		$("#hobby").prop("checked", true);
+		
+		console.log($('#hobby').prop('checked'));
+		console.log($('#username').attr('value'));
+	});
+</script>
+</head>
+<body>
+<!-- 							 name은 jsp에게 필요하다. -->
+<div>jquery에서 스타일 적용</div>
+<input type="text" id="username" name="username" class="c1">
+<input type="checkbox" id="hobby">
+<h2>html 속성을 jqeury에서 제어하기</h2>
+<img src="../img/icon10.png">
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0308 상태선택자</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		//상태선택자
+		// :text -> 속성값이 text인 객체를 선택한다.
+		$(":text").css("background-color",'pink');
+		
+		// :checked -> 
+		$(":checked").attr('checked', false);
+		
+		// selectedIndex -> 선택된 목록의 index
+		console.log( $("#site").prop('selectedIndex'), $("#site").val() );
+		
+		// :selected ->
+		$(':selected').attr('selected', false);
+		
+		//컨텐츠 선택자
+		$("p").css("margin",'10px').css("pading","10px").css('border','3px green solid');
+		
+		//contains() : 특정문자열이 포함된 경우 선택
+		$("p:contains('웹문서를')").css('background-color','pink');
+		
+		//has() : 하위에 특정 태그가 포함되면 선택
+		$("p:has('b')").css('color','red');
+		
+		// not() : 특정 선택자를 제외한 나머지를 선택한다.
+		$("p:not(:first)").css('color','blue');
+		
+		// closest() : 조상 선택자
+		$("i").closest('body').css('border','3px dashed green');
+		
+		//filter()
+		$('p').filter('.c1').css('text-decoration','underline');
+		
+		//contents() : 선택자의 하위 내용이 다른 태그에 포함된 경우 선택
+		$('p').contents().css('font-size','2em');
+	});
+</script>
+</head>
+<body>
+<div>
+	<p>웹문서를 만드는 경우, <b>문서가 로드되었을때를 기점으로 문서를 초기화하고,각종</b> 설정을 부여하는 것은 빈번한 일입니다.
+	이 시점에 접근하기 위해 사용되는 이벤트들에 대하여 알아봅니다.
+	</p>
+	<p class="c1">정은경 질병관리청 중앙방역대책본부장은 8일 코로나19 정례브리핑에서 "영국과 스코틀랜드에서 실제 접종 후의 효과에 대한 평가 데이터들이 발표가 되면서
+	 65세 이상의 접종의 유효성에 대한 근거가 좀 더 추가됐다"며 "이번주 정도에 예방접종전문위원회를 열어 해당 내용을 심의할 예정"이라고 밝혔다.
+	</p>
+	<p class="c1">웹문서를 만드는 경우, <i>문서가 로드되었을때를 기점으로 문서를 초기화하고,각종 설정을 부여하는 것은 빈번한 일입니다.</i>
+	이 시점에 접근하기 위해 사용되는 이벤트들에 대하여 알아봅니다.
+	</p>
+</div>
+<form>
+	<ul>
+		<li><label>이름</label></li>
+		<li><input type="text" name="username" id="username"></li>
+		<li><label>연락처</label></li>
+		<li><input type="text" name="tel" id="tel"></li>
+		<li><label>사용동의여부</label></li>
+		<li><input type="radio" name="accept" value="yes" checked>동의
+			<input type="radio" name="accpet" value="no">동의안함
+		</li>
+		<li><label>자주가는 사이트</label></li>
+		<li>
+			<select name="site" id="site">
+				<option value="not">==직접선택==</option>
+				<option value="daum">다음</option>
+				<option value="nate" selected>네이트</option>
+				<option value="naver">네이버</option>
+			</select>
+			
+		</li>
+		<li>
+			<input type="button" value="확인">
+		</li>
+	</ul>
+</form>
+</body>
+</html>

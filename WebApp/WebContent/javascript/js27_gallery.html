@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>0308</title>
+<style>
+	#mainDiv{
+		width: 800px;
+		margin: 0 auto;
+	}
+	#mainDiv>img{
+		width: 150px;
+		height: 150px;
+	}
+	#modal{
+		background-color: gray;
+		opacity: 0.5;
+		position: absolute;
+		left: 0px;
+		top: 0px;
+		width: 100%;
+	}
+	#bigShow{
+		width: 500px;
+		height: 540px;
+		border: 1px solid gray;
+		border-radius: 5px;
+		background-color: #ddd;
+		position: absolute;
+		display: none;
+		z-index: 100;
+	}
+	#fileName{
+		font-size: 2em;
+		text-align: center;
+		height: 40px;
+		background-color: #ccc;
+	}
+	
+	#bigImage{
+		width: 500px;
+		height: 500px;
+	}
+</style>
+<script>
+	function setImage(){
+		var tag = "";
+		for(var j=0; j<3; j++){
+			for(var i=1; i<=15;i++){
+				tag += "<img src='../img/icon";
+				if(i<10){
+					tag +="0";
+				}
+				tag += i+".png' onclick='bigShowStart(this.src)'>";
+			}
+		}	
+		document.getElementById("mainDiv").innerHTML = tag;
+	}
+	function bigShowStart(fileName){
+		//모달
+		var modal = document.getElementById("modal");
+		modal.style.display = "block";
+		//컨텐츠 높이만큼 모달 높이를 지정
+		//	document.body.scrollHeight ; -> 모달의 높이를 지정하는 방법 1 -> 현재 마우스 스크롤 높이를 구하기
+		//	document.documentElement.clientHeight -> 2. document의 내장 높이(바디의 높이)를 구하기
+		modal.style.height = document.body.scrollHeight +"px";
+		
+		//큰이미지
+		//마우스 클릭 좌표구하기
+		var x = event.clientX - 250;
+		var y = event.clientY + window.scrollY;
+		
+		
+		var bigShow = document.getElementById("bigShow");
+		bigShow.style.display = "block";
+		bigShow.style.left = x+"px";
+		bigShow.style.top = y+"px";
+		
+		document.getElementById("fileName").innerHTML = fileName.substring(fileName.lastIndexOf("/")+1);
+		document.getElementById("bigImage").src = fileName;
+	}
+	function bigShowClose(){
+		document.getElementById("modal").style.display = "none";
+		document.getElementById("bigShow").style.display = "none";
+	}
+	// div 이동===================================
+	var flag = false, bigX, bigY; //bigX -> 현재 div의 x, y 좌표
+	function moveStart(){//마우스 누른 상태일때
+		flag = true; //드래그가 시작되는걸 알려주는 변수
+		
+		bigX = parseInt(document.getElementById("bigShow").style.left); //parseInt를 해줘서 "px"을 없애고 숫자로 받는다.
+		bigY = parseInt(document.getElementById("bigShow").style.top);
+		
+		x = event.clientX;
+		y = event.clientY;
+		
+		document.onmousemove = divMove; //document에 이벤트 작업핼때는 function에 ()가 없다. 
+	}
+	function divMove(){
+		if(flag==true){
+			document.getElementById("bigShow").style.left = (event.clientX-x)+bigX+"px";
+			document.getElementById("bigShow").style.top = (event.clientY-y)+bigY+"px";
+		}
+	}
+	function divClose(){
+		flag = false;
+	}
+	document.onmouseup = divClose;
+</script>
+</head>
+<body onload="setImage()">
+<div id="mainDiv"></div>
+<!-- 모달 -->
+<div id="modal"></div>
+<div id="bigShow">
+	<div id="fileName" onmousedown="moveStart()"></div>
+	<img src="../img/icon01.png" id="bigImage" onclick="bigShowClose()">
+</div>
+
+</body>
+</html>
