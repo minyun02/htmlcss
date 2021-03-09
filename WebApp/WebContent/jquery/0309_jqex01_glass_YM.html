@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+	$(function(){
+		////
+		document.body.innerHTML = "<div id='pink'></div><div id='blue'></div>";
+		
+		// 핑크
+		$('#pink').css('background-color','rgb(238, 135, 152)');
+		$('#pink').css('width','100%').css('height','40px');
+		// 블루
+		$('#blue').css('background-color','rgb(84, 174, 200)')
+		$('#blue').css('width','100%').css('height','22px');
+		
+		//title_layer
+		$('#pink').prepend("<img src='../img/title_layer.gif'>");
+		// 컵1
+		$('#blue').after("<div><img src='../img/glass1.gif'></div>");
+		$('div:nth-of-type(3)').css('position', 'absolute').
+								css('top', '70px').
+								css('left','300px');
+		
+		// 컵2
+		$('#blue').after("<div><img src='../img/glass2.gif'></div>");
+		$('div:nth-of-type43)').css('position', 'absolute').
+								css('top', '100px').
+								css('left','450px');
+		// 컵3
+		$('#blue').after("<div><img src='../img/glass3.gif'></div>");
+		$('div:nth-of-type43)').css('position', 'absolute').
+								css('top', '160px').
+								css('left','370px');
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>
