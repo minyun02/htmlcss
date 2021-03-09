@@ -8,7 +8,7 @@
 	.img{
 		position: absolute;
 		left: 30px;
-		top: -150px;	
+		top: -200px;	
 	}
 </style>
 <script>
@@ -39,10 +39,28 @@
 		$('div:eq(4)').css('left','650px');
 		
 		//이벤트
-		$('div:gt(0)').hover(function(){
-			
+		$('div:eq(1)').hover(function(){
+			$('#img1').css('transition','0.3s linear').css('transform','translateY(90%)').css('opacity','0.9');
 		},function(){
-			
+			$('#img1').css('transition','0.5s linear').css('transform','translateY(-90%)')
+		});
+		// div 1, label 1
+		$('div:eq(2)').hover(function(){
+			$('#img2').css('transition','0.3s linear').css('transform','translateY(90%)').css('opacity','0.9');
+		},function(){
+			$('#img2').css('transition','0.5s linear').css('transform','translateY(-90%)')
+		});
+		//
+		$('div:eq(3)').hover(function(){
+			$('#img3').css('transition','0.3s linear').css('transform','translateY(90%)').css('opacity','0.9');
+		},function(){
+			$('#img3').css('transition','0.5s linear').css('transform','translateY(-90%)')
+		});
+		//
+		$('div:eq(4)').hover(function(){
+			$('#img4').css('transition','0.3s linear').css('transform','translateY(90%)').css('opacity','0.9');
+		},function(){
+			$('#img4').css('transition','0.5s linear').css('transform','translateY(-90%)')
 		});
 	});
 </script>
