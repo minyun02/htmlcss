@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	article{
+		/*font-size: 2em;
+		font-size: 1mm;*/
+	}
+</style>
+<script>
+	$(function(){
+		//컬러명 설정
+		var cCode = ['red','rgb(249,234,106)','#0f0','pink', '#fff','#000','#00f'];
+		var cName = ['빨강','노랑'             ,'green','pink','white','black','blue'];
+		
+		cCode.map(function(value, index){
+			var tag = "<option value='"+value+"'>"+cName[index]+"</option>";
+			$("#colorName").append(tag);
+		});
+		
+		//이벤트
+		// $("#colorName").on('change',function(){})
+		$('#colorName').change(function(){
+			$('article').css( $('#choiceColor').val(), $('#colorName').val() );
+		});
+		
+		//글자가 점점 크거나 작아지는 처리
+		$('input').on('click',function(){
+			console.log( $('article').css('font-size') );
+			
+			//버튼들중에 index를 구하여 선택된 버튼 알아내기
+			var idx = $('#menu>input').index(this);//방금 이벤트가 발생한 객체의 index
+			console.log(idx)
+			//현재 글자 크기 구하기 (정수로 구하기)
+			var size = parseInt($('article').css('font-size'));
+			if(idx==0) size--;
+			if(idx==1) size=16;
+			if(idx==2) size++;
+			
+			$("article").css('font-size', size+"px");			
+		})
+	});
+</script>
+</head>
+<body>
+<div id="menu">
+<select id="choiceColor">
+	<option value='background'>배경색</option>
+	<option value='color'>글자색</option>
+</select>	
+<select id="colorName"></select>
+<input type="button" value="-">
+<input type="button" value="0">
+<input type="button" value="+">
+</div>
+<article>
+	"염치없는 정치가 LH 한국토지주택공사를 ‘한국토지투기공사’로 만들었습니다. 정부가 올려놓은 집값을 따라잡으려 주식에
+	‘영끌투자’를 했던 젊은이들을 비웃듯, ‘신의 직장’ 직원들은 국가정보를 이용해 신묘한 경지의 ‘땅 쇼핑’을 보였습니다.
+	그러고도 염치도 없게 "왜 우리는 부동산에 투자하면 안되냐?"며 항변하고 있습니다. 윗선 권력자들은 더한 것도 눈깜짝하지 않고 저지르면서
+	상대적으로 '작은' 일에 왜 난리냐며 대드는 꼴입니다."
+	황교안 전 미래통합당(현 국민의힘) 대표는 한국토지주택공사(LH) 임직원들이 3기 신도시 지역에 투기를 한 사실이 발각되자 
+	"‘야만의 정치’를 끝내야 한다"고 말했다. 황교안 전 대표는 "우리는 그들을 ‘충직한 개’로 착각하고 양떼를 맡겼는데 그들은 본성을 숨기고 
+	우리의 안전과 재산을 이웃 늑대와 함께 갈취했다"면서 이같이 밝혔다. 이어 "나쁜 권력자는 염치도 없이 대한민국의 헌법과 국민의 상식을 훼손했다"면서 
+	"진실을 인정하고 행동해서 우리 힘으로 회복해야 한다"고 강조했다. 황교안 전 대표가 강조한 것은 '헌법 존중', '상식 회복', '정치에서 염치를 회복하는 것' 등 세 가지다.
+	특히 "범죄자에게 수사를 맡기는 것은 상식이 아니다"라며 "자신의 치부를 숨기기 위해 진실도 은폐할 것이 뻔하다"고 우려했다.
+</article>
+</body>
+</html>

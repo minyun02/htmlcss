@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>서브메뉴 만들기 실습</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<style>
+	body{margin: 0;}
+	#titleDiv{
+		margin: 0 auto;
+		width: 1000px;
+		height: 250px;
+		line-height: 250px;
+		text-align: center;
+		font-size: 4em;
+		letter-spacing: 10px;
+	}
+	#menuDiv{
+		margin: 0 auto;
+		width: 1000px;
+		height: 50px;
+		border-top: 3px solid gray;
+		border-bottom: 3px solid gray;
+	}
+	.menu{
+		float: left;
+		width: 20%;
+		height: 20px;
+		list-style-type: none;
+		text-align: center;
+		position: relative;
+	}
+	.menu a:link, .menu a:visited, .menu a:active{
+		text-decoration: none;
+		color: gray;
+	}
+	.menu a:hover{
+		color: black;
+		font-weight: bold;
+	}
+	.menu>ul{
+		padding-left: 0;
+		border: 1px solid gray;
+		margin-top: 14px;	
+/* 		background-color: lightblue; */
+		overflow: hidden;
+		transition-duration: 1s;
+	}
+	.menu>ul>li{
+		list-style-type: none;
+		text-align: center;
+/* 		background-color: pink; */
+		height: 50px;
+		line-height: 50px;
+	}
+	#imgDiv{
+		width: 1000px;
+		margin: 0 auto;
+	}
+	#subMenu1{
+		display: none;
+		background-color: white;
+	}
+	#imgDiv>img{
+		width: 100%;
+	}
+</style>
+<script>
+	$(function(){
+		//hover event
+		$('.menu').hover(function(){
+			var idx = $('.menu').index(this);
+			console.log(idx)
+			if(idx==0){
+// 				$('#subMenu1').css('position','absolute'); 
+				$('#subMenu1').c
+			}
+		},function(){
+			
+		});
+	});
+	
+</script>
+</head>
+<body>
+	<div id="titleDiv">GIRLSDAILY</div>
+	<div id="menuDiv">
+		<ul>
+			<li class='menu'><a href='#'>OUTER</a>
+				<ul id="subMenu1">
+					<li>가디건</li>
+					<li>자켓 & 점퍼</li>
+					<li>베스트</li>
+					<li>코트</li>
+					<li>세일</li>
+				</ul>
+			</li>
+			<li class='menu'><a href='#'>TOP</a>
+				<ul>
+					<li>Tee</li>
+					<li>Cami</li>
+					<li>Knit</li>
+					<li>Shirt & Blouse</li>
+				</ul>
+			</li>
+			<li class='menu'><a href='#'>DRESS</a>
+				<ul>
+					<li>All</li>
+					<li>바캉스룩</li>
+					<li>SET</li>
+				</ul>
+			</li>
+			<li class='menu'><a href='#'>BOTTOM</a>
+				<ul>
+					<li>레깅스</li>
+					<li>힐링투엘브</li>
+					<li>히든밴딩시리즈</li>
+					<li>스커트</li>
+					<li>팬츠</li>
+				</ul>
+			</li>
+			<li class='menu'><a href='#'>SUMMER</a>
+				<ul>
+					<li>HOLI스윔웨어</li>
+					<li>at 22ºC</li>
+					<li>바캉스룩</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div id="imgDiv"><img src='../img/laptop.jfif'></div>
+</body>
+</html>
