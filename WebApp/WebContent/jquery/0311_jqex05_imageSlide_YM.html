@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="lib/jquery-ui.min.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="lib/jquery-ui.min.js"></script>
+<style>
+	#mainDiv{
+		width: 1000px;
+		height: 600px;
+		margin: 0 auto;
+		border: 1px solid gray;
+	}
+	#mainDiv>div{
+		width: 500px;
+		height: 500px;
+ 		overflow: hidden;
+	}
+	#imgDiv{
+		width: 3000px;
+/* 		position: relative; */
+	}
+	#imgDiv>div{
+		width: 500px;
+		float: left;
+	}
+	#imgDiv>div>*{
+		position: relative;
+	}
+	#imgDiv>div>span{
+		top: 300px;
+		color: pink;
+		font-size: 2em;
+		font-weight: bold;
+		position: absolute;
+	}
+	#imgDiv>div>div{
+		height: 13px;
+		overflow: hidden;
+		position: absolute;
+		top: 550px;
+		left: 400px;
+	}
+</style>
+<script>
+
+</script>
+</head>
+<body>
+<div id="mainDiv">
+	<h1>이미지 슬라이드</h1>
+	<div>
+		<div id="imgDiv">
+			<div>
+				<img src="../img/icon01.png">
+				<span>111</span>
+				<div>
+					<img src="../img/point_button.png">
+				</div>
+			</div>
+			<div>
+				<img src="../img/icon02.png">
+				<span>222</span>
+				<img src="../img/point_button.png">
+			</div>
+			<div>
+				<img src="../img/icon03.png">
+				<span>333</span>
+				<img src="../img/point_button.png">
+			</div>
+			<div>
+				<img src="../img/icon04.png">
+				<span>444</span>
+				<img src="../img/point_button.png">
+			</div>
+			<div>
+				<img src="../img/icon05.png">
+				<span>555</span>
+				<img src="../img/point_button.png">
+			</div>
+			<div>
+				<img src="../img/icon06.png">
+				<span>666</span>
+				<img src="../img/point_button.png">
+			</div>
+		</div> 
+	</div>
+</div>
+</body>
+</html>

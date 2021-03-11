@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!--
+	 https://gist.github.com/coolniikou/665255
+ -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="jquery.innerfade.js"></script>
+<style>
+	ul, li{
+		margin: 0; padding: 0; list-style-type: none;
+	}
+	#innerImg{
+		width: 500px; height: 350px;
+	}
+	#innerImg img{
+		width: 500px; height: 350px;
+	}
+	#txt>li{
+		height: 150px; background: #925;
+	}
+</style>
+<script>
+	$(function(){
+		$('#inner').innerfade({
+			animationtype : 'slide'// slide, fade(기본),
+			,speed: 5000//'slow', 'fast', 'normal', 밀리초
+			,timeout: 5000// 쇼대기시간
+			,type: 'random' // 'random','sequence'(기본),'random_start'
+			,containerheight: 'auto'
+		});
+		$('#txt').innerfade({
+			speed : 5000,
+			timeout : 2000,
+			type : 'random_start',
+			animationtype : 'slide'
+		});
+	});
+</script>
+</head>
+<body>
+<div id="innerImg">
+	<ul id="inner">
+		<li><a href="//www.nate.com"><img src="../../img/icon10.png"></a></li>
+		<li><a href="//www.naver.com"><img src="../../img/icon11.png"></a></li>
+		<li><a href="//www.daum.net"><img src="../../img/icon12.png"></a></li>
+		<li><a href="#"><img src="../../img/icon13.png"></a></li>
+		<li><a href="#"><img src="../../img/icon14.png"></a></li>
+		<li><a href="#"><img src="../../img/icon15.png"></a></li>
+	</ul>
+</div>
+<div id="innerText">
+	<ul id="txt">
+		<li>111컴퓨터가 있어야만 컴퓨터 게임도 있을 수 있잖아요.</li>
+		<li>222컴퓨터가 있어야만 컴퓨터 게임도 있을 수 있잖아요.</li>
+		<li>333컴퓨터가 있어야만 컴퓨터 게임도 있을 수 있잖아요.</li>
+		<li>444컴퓨터가 있어야만 컴퓨터 게임도 있을 수 있잖아요.</li>
+		<li>555컴퓨터가 있어야만 컴퓨터 게임도 있을 수 있잖아요.</li>
+		<li>666컴퓨터가 있어야만 컴퓨터 게임도 있을 수 있잖아요.</li>
+	</ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>02</title>
+<link rel="stylesheet" href="lib/jquery-ui.min.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="lib/jquery-ui.min.js"></script>
+<style>
+	ul,li{margin:0; padding:0}
+	#maindiv{
+		width: 700px;
+		margin: 0 auto;
+		border: 1px solid gray;
+	}
+	#imgDiv{
+		width: 500px;
+   		overflow: hidden;
+  		border: 0.5px solid black;
+	}
+	ul{
+		width: 3000px;
+		position: relative;
+	}
+	li{
+		width: 500px;
+		list-style-type: none;
+		float: left;
+		position: relative;
+	}
+	li>div{
+		position: absolute;
+		top: 150px;
+		left: 80px;
+		color: red;
+	}
+	#imgDiv>ul>li:nth-of-type(7){
+		position: relative;
+		height: 16px;
+		overflow: hidden;
+ 		top: -50px;
+		left: 200px;
+	}
+	
+</style>
+<script>
+	$(function(){
+		var num = Math.floor(Math.random()*6+1);
+		console.log(num)
+		if(num==1){$('ul>li').animate()}
+		if(num==2){}
+		if(num==3){}
+		if(num==4){}
+		if(num==5){}
+		if(num==6){}
+	})
+</script>
+</head>
+<body>
+<div id="maindiv">
+	<h1>이미지 슬라이드</h1>
+	<div id='imgDiv'>
+		<ul>
+			<li>
+	<!-- 			슬라이드 1 -->
+				<div>
+					<h2>첫번째 슬라이드</h2>
+					<h3>첫번째 설명</h3>
+					<span>설명123456789</span>
+				</div>
+				<img src="../img/icon01.png">
+			</li>
+			<li>
+	<!-- 			슬라이드 2 -->
+				<div>
+					<h2>두번째 슬라이드</h2>
+					<h3>두번째 설명</h3>
+					<span>설명123456789</span>
+				</div>
+				<img src="../img/icon02.png">
+			</li>
+			<li>
+	<!-- 			슬라이드 3 -->
+				<div>
+					<h2>세번째 슬라이드</h2>
+					<h3>세번째 설명</h3>
+					<span>설명123456789</span>
+				</div>
+				<img src="../img/icon03.png">
+			</li>
+			<li>
+	<!-- 			슬라이드 4 -->
+				<div>
+					<h2>네번째 슬라이드</h2>
+					<h3>네번째 설명</h3>
+					<span>설명123456789</span>
+				</div>
+				<img src="../img/icon04.png">
+			</li>
+			<li>
+	<!-- 			슬라이드 5 -->
+				<div>
+					<h2>다섯번째 슬라이드</h2>
+					<h3>다섯번째 설명</h3>
+					<span>설명123456789</span>
+				</div>
+				<img src="../img/icon05.png">
+			</li>
+			<li>
+	<!-- 			슬라이드 6 -->
+	<div>
+					<h2>여섯번째 슬라이드</h2>
+					<h3>여섯번째 설명</h3>
+					<span>설명123456789</span>
+				</div>
+				<img src="../img/icon06.png">
+			</li>
+			<li>
+				<img src="../img/point_button.png">
+				<img src="../img/point_button.png">
+				<img src="../img/point_button.png">
+				<img src="../img/point_button.png">
+				<img src="../img/point_button.png">
+				<img src="../img/point_button.png">
+			</li>
+		</ul>
+	</div>
+	
+</div>
+</body>
+</html>

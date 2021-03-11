@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="../lib/jquery-ui.min.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="../lib/jquery-ui.min.js"></script>
+<style>
+	#mainDiv{
+		margin: 0 auto;
+		width: 1000px;
+		height: 1000px;
+		text-align: center;
+		border: 1px solid gray;
+	}
+	#animate>div{
+		width: 100px;
+		height: 50px;
+		margin: 5px 0;
+		text-align: right;
+		line-height: 50px;
+		margin-left: 50px;
+	}
+	#bar1{background: pink;}
+	#bar2{background: lightblue;}
+	#bar3{background: gray;}
+	
+	#banner{
+		width: 500px;
+		height: 500px;
+		border: 1px solid red;
+		margin: 0 auto;
+		text-align: left;
+		overflow: hidden;
+	}
+	#imgSlide{
+		width: 3000px;
+		height: 500px;
+		position: relative; 
+	}
+	#imgSlide>img{
+		width: 500px;
+		height: 500px;
+	}
+</style>
+<script>
+	$(function(){
+ 		//바 그래프
+		$('#bar1').animate({width:"600px"}, 4000, 'easeOutElastic');
+ 		$('#bar2').animate({width:"400px"}, 3000, 'easeOutBounce');
+ 		$('#bar3').animate({width:"800px"}, 5000, 'easeOutBounce');
+ 		
+ 		//이미지 슬라이더
+ 		function slideMove(idx){
+ 			var left = -(idx * 500);
+ 			$('#imgSlide').animate({marginLeft:left+"px"}, 2000);
+ 		}
+ 		
+ 		//난수 생성
+ 		
+ 		var ran = parseInt(Math.random()*5);
+ 		console.log(ran)
+ 		slideMove(ran);
+ 		
+ 		
+	});
+</script>
+</head>
+<body>
+<div id="mainDiv">
+	<h1>간식</h1>
+	<div id="animate">
+		<p>간식 종류</p>
+		<div id="bar1">젤리</div>
+		<div id="bar2">커피</div>
+		<div id="bar3">과자</div>
+	</div>
+	<div id="banner">
+		<div id="imgSlide">
+			<img src="../../img/icon11.png"><img src="../../img/icon12.png"><img src="../../img/icon13.png"><img src="../../img/icon14.png"><img src="../../img/icon15.png">
+		</div>
+		<div id="controller">
+			<div></div><div></div><div></div><div></div><div></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
