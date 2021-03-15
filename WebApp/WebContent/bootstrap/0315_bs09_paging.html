@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   
+   <meta name="viewport" content ="width=device-width, initial-scale=1"/>
+   <link rel="stylesheet" href="lib/bootstrap.css" type="text/css"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="lib/bootstrap.js"></script>
+   
+   <style>
+   
+   </style>
+   
+   <script>
+      
+   </script>
+</head>
+<body>
+   <div class="container">
+      <h1>페이징하기</h1>
+      <!-- 
+         .pagination : 리스트 페이징하기 (그냥 레프트..)
+         .breadcrumb:  리스트 배경이 설정됨.
+         
+         .page.item: 
+         .page.link: padding,border
+         
+         .disabled: 링크 비활성화
+         .active : 현재 페이지
+         
+         //글자 크기 . padding
+         .page nation-lg .page nation-md  .page nation-sm
+       -->
+       <ul class="pagination pagination-sm"> <!-- 크기 조절 -->
+          <li class="page-item disabled"><a href="#" class="page-link">Prev</a></li>
+          <li class="page-item"><a href="#" class="page-link">1</a></li>
+          <li class="page-item"><a href="#"class="page-link">2</a></li>
+          <li class="page-item active"><a href="#"class="page-link">3</a></li>
+          <li class="page-item"><a href="#"class="page-link">4</a></li>
+          <li class="page-item"><a href="#"class="page-link">5</a></li>
+          <li class="page-item disabled"><a href="#"class="page-link">Next</a></li>
+       </ul>
+       <ul class="breadcrumb pagination-sm">
+          <li class="page-item"><a href="#" class="page-link">Prev</a></li>
+          <li class="page-item"><a href="#" class="page-link">1</a></li>
+          <li class="page-item"><a href="#" class="page-link">2</a></li>
+          <li class="page-item active"><a href="#" class="page-link">3</a></li>
+          <li class="page-item"><a href="#" class="page-link">4</a></li>
+          <li class="page-item"><a href="#" class="page-link">5</a></li>
+          <li class="page-item disabled"><a href="#" class="page-link">Next</a></li>
+       </ul>
+   </div>
+</body>
+</html>

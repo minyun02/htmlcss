@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="lib/bootstrap.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="lib/bootstrap.js"></script>
+<script>
+	$(function(){
+		$('#myInput').keyup(function(){
+			var value = $(this).val().toLowerCase(); //검색어로 입력한 문자열 $("#myInput").val();
+			
+			$("#memList>tr").filter(function(){
+				var idx = ($(this).text().indexOf(value)); //0~n
+				// 			  (true) -> 그냥 둠, false -> 숨긴다.
+				$(this).toggle(idx>-1);				
+			});
+			
+		});
+	});
+</script>
+</head>
+<body>
+<div class="container">
+	<h1>Filter</h1>
+	<input type="text" id="myInput" placeholder="Search....">
+	<hr>
+	<table class="table table-hover">
+		<thead>
+		<tr>
+			<td>이름</td>
+			<td>아이디</td>
+			<td>연락처</td>
+			<td>주소</td>
+		</tr>
+		</thead>
+		<tbody>
+		<tr>
+			<td>홍길동</td>
+			<td>hong gil-dong</td>
+			<td>010-1234-5678</td>
+			<td>서울시 중고</td>
+		</tr>
+		<tr>
+			<td>가나다</td>
+			<td>hong gil-dong</td>
+			<td>210-1234-5678</td>
+			<td>2서울시 중고</td>
+		</tr>
+		<tr>
+			<td>에이비</td>
+			<td>hong gil-dong</td>
+			<td>310-1234-5678</td>
+			<td>3서울시 중고</td>
+		</tr>
+		<tr>
+			<td>안녀엉</td>
+			<td>hong gil-dong</td>
+			<td>410-1234-5678</td>
+			<td>4서울시 중고</td>
+		</tr>
+		<tr>
+			<td>누구요</td>
+			<td>hong gil-dong</td>
+			<td>510-1234-5678</td>
+			<td>5서울시 중고</td>
+		</tr>
+		<tr>
+			<td>하와이</td>
+			<td>hong gil-dong</td>
+			<td>610-1234-5678</td>
+			<td>6서울시 중고</td>
+		</tr>
+		<tr>
+			<td>뉴욕</td>
+			<td>hong gil-dong</td>
+			<td>710-1234-5678</td>
+			<td>7서울시 중고</td>
+		</tr>
+		<tr>
+			<td>캘리</td>
+			<td>hong gil-dong</td>
+			<td>810-1234-5678</td>
+			<td>8서울시 중고</td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

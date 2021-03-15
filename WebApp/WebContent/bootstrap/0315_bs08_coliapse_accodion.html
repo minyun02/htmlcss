@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   
+   <meta name="viewport" content ="width=device-width, initial-scale=1"/>
+   <link rel="stylesheet" href="lib/bootstrap.css" type="text/css"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="lib/bootstrap.js"></script>
+   
+   <style>
+   
+   </style>
+   
+   <script>
+      
+   </script>
+</head>
+<body>
+   <div class="container">
+      <h1>Collapse예</h1>
+      <!-- 버튼 선택하면 컨텐츠 보였다가 안보였다가 할 수 있는 기능만들기 -->
+      <button class="btn btn-primary" data-target="#view1" data-toggle="collapse"> 클릭하세요..</button>
+      <div id="view1" class="collapse show"> <!--  show는 데이터가 보인상태에서 시작 -->
+         <img src="../img/st.jpg" />
+      </div>
+      <hr/>
+      <button class="btn btn-secondary" data-target="#view2" data-toggle="collapse">내용보기/내용닫기</button>
+      <div id="view2" class="collapse show">
+         자신의 결혼 발표 당시에도 자신이 멤버를 공개저격했고 김동완이 대인배처럼 계속 욕을 먹어왔다고 말한 그는 "군백기 이후 앨범 준비하는 매년 1년 전부터 스케줄 조정과 콘서트 대관을 진행해왔는데 제작진과의 소통을 제가 모르겠느냐"며 "6년간 모이자, 회의 하자 하면 몇 주 전부터 스케줄 맞춰서 겨우 보는 것도 못해 급해서 미룰 수 없으니 5명이서 회의한 게 허다하다"고 고충을 토로했다.
+      </div>
+      <h1>accordion</h1>
+         <div id="accordion">
+            <div class="card">
+               <div class="card-heaer card-link" data-target="#v1" data-toggle="collapse" data-parent="#accordion">아코디온 적용예제</div>   
+               <div id="v1" class="collapse">
+               에릭은 디시인사이드 신화 갤러리에 올라온 글들을 일부 캡처해 "내가 왜 사고친 멤버들도 있는데 사고 안친 동완이한테만 뭐라하는지 그게 궁금한 거 아니냐. 모르면 주변에 물어봐라"라며 분개했다. 실제로 신화 갤러리를 제외하면 대부분의 네티즌들은 에릭의 입장을 이해해주는 상황.
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-heaer card-link" data-target="#v2" data-toggle="collapse" data-parent="#accordion">아코디온 적용예제2</div>   
+               <div id="v2" class="collapse">
+                  <img src="../img/10.png">
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-heaer card-link" data-target="#v3" data-toggle="collapse" data-parent="#accordion">아코디온 적용예제3</div>   
+               <div id="v3" class="collapse show">
+               에릭은 디시인사이드 신화 갤러리에 올라온 글들을 일부 캡처해 "내가 왜 사고친 멤버들도 있는데 사고 안친 동완이한테만 뭐라하는지 그게 궁금한 거 아니냐. 모르면 주변에 물어봐라"라며 분개했다. 실제로 신화 갤러리를 제외하면 대부분의 네티즌들은 에릭의 입장을 이해해주는 상황.
+               </div>
+            </div>            
+            
+         </div>
+   </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="UTF-8">
+   <title>Insert title here</title>
+   
+   <meta name="viewport" content ="width=device-width, initial-scale=1"/>
+   <link rel="stylesheet" href="lib/bootstrap.css" type="text/css"/>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="lib/bootstrap.js"></script>
+   
+   <style>
+   
+   </style>
+   
+   <script>
+      $(function(){
+    	 $(".container>div:first>a").addClass("list-group-item");
+    	 
+    	 $(".container>div:last").addClass("list-group");
+    	 $(".container>div:last>div").addClass("list-group-item");
+      });
+   </script>
+</head>
+<body>
+   <div class="container">
+    <!-- uㅣ으로 목록만들기 -->
+       <ul class="list-group">
+          <li class="list-group-item">세계에서 가장 환상적인 시계탑</li>
+          <li class="list-group-item list-group-item-secondary">버몬트 주에 방문하는 여행자가 코로나19 백신 접종을 완전히 마친 후 최소 14일이 지났다면 자가격리를 면제받을 수 있게 되었다. </li>
+          <li class="list-group-item">뉴잉글랜드(New England) 지방으로 비행기, 기차 혹은 버스로 들어오는 여행객 중 백신 접종을 하지 않은 이들은 반드시 도착 후 14일간의 자가격리를 거쳐야 한다</li>
+          <li class="list-group-item">만약 방문객이 코로나19의 증상이 없다면 자가격리 7일 이후에 PCR테스트를 받을 수 있는 선택지가 주어진다. </li>
+       </ul>
+       <hr/>
+    <!-- a태그로 목록만들기 -->
+       <div class="list-group"> 
+          <a href="#" class="list">테스트에서 음성이 나오면 자가격리를 마칠 수 있지만 반드시 14일 동안 스스로 철저하게 모니터를 해야 한다. </a>
+          <a href="#">버몬트에 오기 전에 자신이 거주하는 주에서 자가격리를 하는 선택지도 있다. </a>
+          <a href="#">자가용이나 자가용 비행기로 주를 방문하는 이들이 집에서 격리를 한 후, 곧장 버몬트로 향하는 방법인데, </a>
+          <a href="#">
+             <h1>배우 하재숙이 고성에서의 일상을 공개했다.</h1>
+             <p> “한시간전에 나랑 대판 싸우고 그새 해맑게 사진을 보내신 이스방. 오늘은 분노의 촬영이닷"라는 글을 남기며 부부싸움을 했다고 밝혔던 바.</p>
+          </a>
+       </div>
+       <hr/>
+    <!-- div 태그로 목록만들기  -->
+      <div>
+         <div>‘와와퀴’ 고정 멤버들 윤은혜 등장에 반가움×텃세(?) 작렬</div>
+         <div>신화 에릭, 김동완과 불화 토로→팬 글 공개 “기름 부으시네”(종합)</div>
+         <div>[속보]경찰, '투기의혹' 시흥시의원·광명시 공무원 압수수색</div>
+         <div>"우리 엄마도 달목욕 가는데"...진주 사우나발 확진자 150명 넘어</div>
+      </div>
+   </div>
+</body>
+</html>\
