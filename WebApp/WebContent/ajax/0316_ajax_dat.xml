@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jusorok>
+	<row>
+		<username>손흥민</username>
+		<tel>010-1234-5678</tel>
+		<addr>서울시 중구</addr>
+	</row>
+	<row>
+		<username>김연아</username>
+		<tel>010-8888-9999</tel>
+		<addr>서울시 영등포구</addr>
+	</row>
+	<row>
+		<username>손오공</username>
+		<tel>010-2342-2128</tel>
+		<addr>서울시 서대문구</addr>
+	</row>
+	<row>
+		<username>사오정</username>
+		<tel>010-6755-7555</tel>
+		<addr>서울시 마포구</addr>
+	</row>
+	<row>
+		<username>저팔계</username>
+		<tel>010-2222-3333</tel>
+		<addr>서울시 서대문구</addr>
+	</row>
+	<row>
+		<username>삼장법사</username>
+		<tel>010-8878-6786</tel>
+		<addr>서울시 종로구</addr>
+	</row>
+</jusorok>
