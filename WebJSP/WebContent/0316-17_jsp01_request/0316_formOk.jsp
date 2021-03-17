@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Arrays, java.util.Enumeration" %>
 <%
+	request.setCharacterEncoding("UTF-8");
+	
 	String username = request.getParameter("username");
 	
 	String tel = request.getParameter("tel");
@@ -51,6 +53,19 @@ intro : <%=intro %>
 	}
 %>
 </ol>
+
+<ul>
+	<li>접속자의 컴퓨터 ip : <%=request.getRemoteAddr() %> </li>
+	<li>인코딩 코드값 : <%=request.getCharacterEncoding() %></li>
+	<li>ContentType : <%=request.getContentType() %></li>
+	<li>전송방식 : <%=request.getMethod() %></li>
+	<li>프로토콜 : <%=request.getProtocol() %></li>
+	<li>URI : <%=request.getRequestURI() %></li><!-- 파일경로를 context부터 구한다 -->
+	<li>contextPath : <%=request.getContextPath() %></li>
+	<li>서버이름 : <%=request.getServerName() %></li>
+	<li>port : <%=request.getServerPort() %></li>
+	<li>절대주소 : <%=request.getServletContext().getRealPath("/img") %></li>
+</ul>
 </body>
 </html>
 
