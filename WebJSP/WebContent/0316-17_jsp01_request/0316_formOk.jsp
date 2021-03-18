@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Arrays, java.util.Enumeration" %>
 <%
+	//request 전송받기 전에 한글 인코등을 해줘야한다.
 	request.setCharacterEncoding("UTF-8");
 	
 	String username = request.getParameter("username");

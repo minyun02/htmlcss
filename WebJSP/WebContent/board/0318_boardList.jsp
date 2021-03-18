@@ -70,15 +70,37 @@
 		String logStatus = (String)session.getAttribute("logStatus");	// Y or null or ""
 		if(logStatus != null && logStatus.equals("Y")){
 	%>
-		<a href="#">글쓰기</a>
+		<a href="<%=request.getContextPath()%>/board/0318_boardWriteForm.jsp">글쓰기</a>
+		
 		
 	<%
 		}
 	
 	%>	
 	</div>
-	<div>paging</div>
-	<div>검색</div>
+	<div>
+		<ul class="breadcrumb pagination-sm">
+          <li class="page-item"><a href="#" class="page-link">Prev</a></li>
+          <li class="page-item"><a href="#" class="page-link">1</a></li>
+          <li class="page-item"><a href="#" class="page-link">2</a></li>
+          <li class="page-item active"><a href="#" class="page-link">3</a></li>
+          <li class="page-item"><a href="#" class="page-link">4</a></li>
+          <li class="page-item"><a href="#" class="page-link">5</a></li>
+          <li class="page-item disabled"><a href="#" class="page-link">Next</a></li>
+       </ul>
+	</div>
+	<div>
+		<form method="post" action="<%=request.getContextPath() %>/board/0318_boardList.jsp">
+			<!-- 제목, 작성자, 글내용 검색기능 -->
+			<select name="searchKey">
+				<option value="subject">제목</option>
+				<option value="userid">작성자</option>
+				<option value="content">글내용</option>
+			</select>
+			<input type="text" name="searchWord" id="searchWord">
+			<input type="submit" value="Search...">
+		</form>
+	</div>
 </div>
 </body>
 </html>
