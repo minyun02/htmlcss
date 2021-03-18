@@ -21,6 +21,7 @@
 	#boardList>li:nth-child(5n+4){
 		width: 15%;
 	}
+	
 </style>
 </head>
 <body>

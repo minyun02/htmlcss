@@ -13,7 +13,7 @@
  <%
  	request.setCharacterEncoding("UTF-8");
  %>
-<jsp:useBean id="vo" class="com.bitcamp.board.BoardVO" scope="page"></jsp:useBean>
+<jsp:useBean id="vo" class="com.bitcamp.board.BoardVO" scope="page"></jsp:useBean> <%--vo 객체선언을 대신하는게 useBean --%>
 <jsp:setProperty name="vo" property="*"/> <!-- request한걸 담는 역할 *-> vo에 모든 변수를 선택 -->
 <%
 	//session의 글쓴이 아이디를 vo에 대입한다.
@@ -22,7 +22,7 @@
 	vo.setIp(request.getRemoteAddr());
 	
 	BoardDAO dao = new BoardDAO(); //db에 데이터를 넣기위해서 객체 생성
-	int result = dao.insertBoard(vo);
+	int result = dao.insertBoard(vo); //dao에 insertBoard 메소드에 vo를 담아서 보낸다.
 	
 	if(result>0){//글 등록
 		response.sendRedirect(request.getContextPath()+"/board/0318_boardList.jsp");

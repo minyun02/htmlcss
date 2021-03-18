@@ -4,4 +4,6 @@
 	if(logStatus==null || !logStatus.equals("Y")){
 		response.sendRedirect(request.getContextPath()+"/login/login_form.html");
 	}
+	
+	//로그인을 거치지 않고 바로 게시판 글쓰기 주소로 접근했을때 로그인 여부를 확인해서 로그인페이지로 보낸다.
 %>
