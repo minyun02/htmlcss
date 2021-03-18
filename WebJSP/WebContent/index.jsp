@@ -24,16 +24,9 @@
 </script>
 </head>
 <body>
+<%@ include file="jsp04_include/0318_jspf_header.jspf" %>
 <h2>session.ID : <%=session.getId() %></h2>
-<%//session로그인 여부를 확인후 선택하여 표시한다.
-	if(session.getAttribute("logStatus")==null){//로그인안됨
-%>
-		<a href="<%=request.getContextPath()%>/login/login_form.html">로그인</a>
-<%}else if(session.getAttribute("logStatus").equals("Y")){ %>
-	
-		<%=session.getAttribute("logName") %>
-		<a href="<%=request.getContextPath()%>/login/logout.jsp">로그아웃</a>
-<%	} %>
+
 <h1>JSP Start........</h1>
 <%
 	Calendar now = Calendar.getInstance();
@@ -52,6 +45,7 @@
 	int result = sum(b, a);
 	out.write("<br>result"+result);
 	out.write("<br>"+a+"+"+b+"="+sum(a,b));
+	
 %>
 <br>
 <%=a+4%>-<!-- %= -> 단순한 계산이나 변수를 불러오는거만 가능 -->
