@@ -18,13 +18,16 @@
 <div class="container">
 	<%@ include file="../jsp04_include/0318_jspf_header.jspf" %>
 	<%
+		
 		int no = Integer.parseInt(request.getParameter("no"));			//레코드번호
 		int nowNum = Integer.parseInt(request.getParameter("nowNum"));	//페이지번호
 		String searchKey = request.getParameter("searchKey"); 			//검색키
 		String searchWord = request.getParameter("searchWord"); 		//검색어
 		
+		System.out.println(nowNum+", "+searchKey+", "+searchWord);
+		
 		BoardDAO dao = new BoardDAO();
-		BoardVO vo = dao.getOneSelect(no);
+		BoardVO vo = dao.getOneSelect(no, 1);
 	%>
 	<div>
 		<h1>글내용보기</h1>
@@ -42,8 +45,15 @@
 			<%
 				//글쓴이와 로그인 아이다가 같으면 수정, 삭제 가능
 			if(vo.getUserid().equals((String)session.getAttribute("logId"))){ %>
-				<a href="">수정</a>
-				<a href="">삭제</a>
+				<a href="<%=request.getContextPath()%>/board/boardEditForm.jsp?no=<%=vo.getNo()%>&nowNum=<%=nowNum%><%if(searchWord!=null && !searchWord.equals("")){out.write("&searchKey="+searchKey+"&searchWord="+searchWord);}%>">수정</a>
+				<a href="javascript:delCheck()">삭제</a>
+				<script>
+					function delCheck(){
+						if(confirm("삭제하시겠습니까?")){ // yes(true) or no(false) 를 선택 가능
+							location.href="<%=request.getContextPath()%>/board/delOk.jsp?no=<%=vo.getNo()%>&nowNum=<%=nowNum%><%if(searchWord!=null && !searchWord.equals("")){out.write("&searchKey="+searchKey+"&searchWord="+searchWord);}%>";
+						}
+					}
+				</script>
 			<%} %>
 		</div>
 	</div>
