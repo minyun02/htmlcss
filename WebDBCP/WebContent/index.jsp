@@ -35,7 +35,7 @@
 	li{float:left; height:40px; line-height:40px; width:10%;}
 	li:nth-child(5n+2){width:60%;}
 	
-	.wordCut{white-space: no-wrap; overflow:hidden; tet-overflow:ellipsis;}
+	.wordCut{white-space: no-wrap; overflow:hidden; text-overflow:ellipsis;}
 </style>
 </head>
 <body>
