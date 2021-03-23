@@ -112,7 +112,7 @@
 		<ResourceLink
 			global="jdbc/myoracle"
 			name="jdbc/myoracle"
-			type="javax.sql.OracleDataSource"
+			type="javax.sql.DataSource"
 		/>
 		
 	7. 이클립스의 WEB-INF/web.xml파일의 <web-app>태그에 추가
