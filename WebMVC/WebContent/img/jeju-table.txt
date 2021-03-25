@@ -1,0 +1,19 @@
+/* 우편번호 */
+DROP TABLE zipcode 
+	CASCADE CONSTRAINTS;
+
+/* 우편번호 */
+CREATE TABLE zipcode (
+	zipcode VARCHAR2(5) NOT NULL, /* 우편번호 */
+	sido VARCHAR2(30) NOT NULL, /* 시도 */
+	sigungu VARCHAR2(30) NOT NULL, /* 시군구 */
+	um VARCHAR2(30), /* 읍면 */
+	doro VARCHAR2(30) NOT NULL, /* 도로명 */
+	build1 NUMBER, /* 건물번호본번 */
+	build2 NUMBER, /* 건물번호부번 */
+	sibuild VARCHAR2(60), /* 시군구용건물명 */
+	dong VARCHAR2(30), /* 법정동명 */
+	leename VARCHAR2(30), /* 리명 */
+	gibun1 NUMBER, /* 지번본번 */
+	gibun2 NUMBER /* 지번부번 */
+);
