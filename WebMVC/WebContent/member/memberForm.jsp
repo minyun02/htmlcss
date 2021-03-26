@@ -5,7 +5,7 @@
 	#memId li{float: left; height: 50px; border-bottom: 1px solid #ddd; padding: 10px 0;}
 	#memId li:nth-child(2n){width: 80%;}
 	#memId li:nth-child(2n+1){width: 20%;}
-	#memId li:last-of-type{width: 100%; text-align: center;}	
+	#memId li:last-of-type{width: 100%; text-align: center;}
 </style>
 <script>
 	$(function(){
@@ -78,8 +78,8 @@
 	});
 </script>
 <div class="container">
-	<h1>회원가입하기</h1>
-	<form method="post" id="memId" action="member/memberFormOk.do">
+	<h1 style="padding:30px;text-align:center">회원가입하기</h1>
+	<form method="post" id="memId" action="<%=request.getContextPath()%>/member/memberFormOk.do">
 		<ul id="regForm">
 			<li>아이디</li>
 			<li><input type="text" name="userid" id="userid" maxlength="20" value="asdf">

@@ -19,7 +19,8 @@ public class MemberVO {
 	private String addr;
 	private String detailaddr;
 	
-	private String interest[];
+	private String interest[]; //2개 이상이 들어오기때문에 배열 -> 배열이 들어오면 나중에 독서/쇼핑/코딩 이런식으로 합쳐줘야함
+	private String interestStr="";
 	
 	private String regdate;
 	
@@ -122,6 +123,19 @@ public class MemberVO {
 	}
 	public void setInterest(String interest[]) {
 		this.interest = interest;
+		//배열의 값을 문자열로 만들어 return한다
+		for(String i : interest) {
+			interestStr += i+"/";
+		}
+	}
+	public String getInterestStr() {
+		return interestStr;
+	}
+	public void setInterestStr(String interestStr) {
+		//문자열을 배열로
+		this.interestStr = interestStr;
+		//관심분야를 배열로 만들어 interest에 추가한다.
+		interest = interestStr.split("/");
 	}
 	public String getRegdate() {
 		return regdate;
