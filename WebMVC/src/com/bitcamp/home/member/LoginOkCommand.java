@@ -26,7 +26,7 @@ public class LoginOkCommand implements CommandService {
 		//로그인 성공시 session에 필요한 데이터 저장
 		if(vo.getUsername()!=null && !vo.getUsername().equals("")) {
 			HttpSession ses = req.getSession();
-			ses.setAttribute("userid", vo.getUserid());
+			ses.setAttribute("userid", vo.getUserid()); //goguma1234, goguma, testtest, null, ""
 			ses.setAttribute("username", vo.getUsername());
 		}
 		
