@@ -1,0 +1,92 @@
+/* 회원정보 */
+DROP TABLE register 
+	CASCADE CONSTRAINTS;
+
+/* 게시판 */
+DROP TABLE board 
+	CASCADE CONSTRAINTS;
+
+/* 우편번호 */
+DROP TABLE zipcode 
+	CASCADE CONSTRAINTS;
+
+/* 자료실 */
+DROP TABLE data 
+	CASCADE CONSTRAINTS;
+
+/* 회원정보 */
+CREATE TABLE register (
+	no NUMBER NOT NULL, /* 일련번호 */
+	userid VARCHAR2(20) NOT NULL, /* 아이디 */
+	userpwd VARCHAR2(20) NOT NULL, /* 비밀번호 */
+	username VARCHAR2(20) NOT NULL, /* 이름 */
+	tel VARCHAR2(15) NOT NULL, /* 연락처 */
+	email VARCHAR2(100), /* 이메일 */
+	zipcode VARCHAR2(5), /* 우편번호 */
+	addr VARCHAR2(200), /* 주소 */
+	detailaddr VARCHAR2(100), /* 상세주소 */
+	interest VARCHAR2(100), /* 관심분야 */
+	regdate DATE DEFAULT sysdate NOT NULL /* 가입일 */
+);
+
+ALTER TABLE register
+	ADD
+		CONSTRAINT PK_register
+		PRIMARY KEY (
+			no
+		);
+
+/* 게시판 */
+CREATE TABLE board (
+	no NUMBER NOT NULL, /* 일련번호 */
+	subject VARCHAR2(300) NOT NULL, /* 제목 */
+	content CLOB NOT NULL, /* 글내용 */
+	userid VARCHAR2(20) NOT NULL, /* 작성자 */
+	hit NUMBER(5) DEFAULT 0 NOT NULL, /* 조회수 */
+	writedate DATE DEFAULT sysdate NOT NULL, /* 등록일 */
+	ip VARCHAR2(20) NOT NULL /* 아이피 */
+);
+
+ALTER TABLE board
+	ADD
+		CONSTRAINT PK_board
+		PRIMARY KEY (
+			no
+		);
+
+/* 우편번호 */
+CREATE TABLE zipcode (
+	zipcode VARCHAR2(5) NOT NULL, /* 우편번호 */
+	sido VARCHAR2(30) NOT NULL, /* 시도 */
+	sigungu VARCHAR2(30) NOT NULL, /* 시군구 */
+	um VARCHAR2(30), /* 읍면 */
+	doro VARCHAR2(30) NOT NULL, /* 도로명 */
+	build1 NUMBER, /* 건물번호본번 */
+	build2 NUMBER, /* 건물번호부번 */
+	sibuild VARCHAR2(60), /* 시군구용건물명 */
+	dong VARCHAR2(30), /* 법정동명 */
+	leename VARCHAR2(30), /* 리명 */
+	gibun1 NUMBER, /* 지번본번 */
+	gibun2 NUMBER /* 지번부번 */
+);
+
+/* 자료실 */
+CREATE TABLE data (
+	no NUMBER NOT NULL, /* 일련번호 */
+	title VARCHAR2(200) NOT NULL, /* 제목 */
+	content CLOB NOT NULL, /* 글내용 */
+	userid VARCHAR2(20) NOT NULL, /* 작성자 */
+	filename1 VARCHAR2(200) NOT NULL, /* 파일명1 */
+	filename2 VARCHAR2(200), /* 파일명2 */
+	hit NUMBER DEFAULT 0 NOT NULL, /* 조회수 */
+	downCount NUMBER DEFAULT 0 NOT NULL, /* 다운로드횟수 */
+	writedate DATE DEFAULT sysdate NOT NULL, /* 등록일 */
+	ip VARCHAR2(20) NOT NULL /* 아이피 */
+);
+
+ALTER TABLE data
+	ADD
+		CONSTRAINT PK_data
+		PRIMARY KEY (
+			no
+		);
