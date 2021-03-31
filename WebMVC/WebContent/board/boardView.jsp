@@ -22,7 +22,7 @@
 		<a href="<%=request.getContextPath()%>/board/list.do?pageNum=${pVO.pageNum}<c:if test="${pVO.searchWord!=null && pVO.searchWord!=''}">&searchKey=${pVO.searchKey}&searchWord=${pVO.searchWord}</c:if>">글목록</a>
 		
 		<c:if test="${userid==vo.userid}">
-			수정
+			<a href="<%=request.getContextPath()%>/board/boardEdit.do?${delAddr}">수정</a>
 			<span id="del">삭제</span>	<!--  <a hre="javascript:delCheck()">삭제</a> -->
 		</c:if>
 	</div>

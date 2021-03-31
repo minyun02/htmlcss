@@ -25,4 +25,7 @@ public interface BoardDAOService {
 	
 	// 7. 한 페이지 레코드 선택
 	public List<BoardVO> onePageRecordSelect(PageSearchVO vo);
+	
+	// 8. 글쓴이 선택
+	public String getUserid(int no);
 }
