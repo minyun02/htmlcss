@@ -19,17 +19,31 @@
 	#slider img{
 		width: 100%;
 	}
+	.sliderDiv{
+		width: 800px;
+		margin: 0 auto;
+		position: relative;
+		z-index: 10;
+	}
+	#page{
+		overflow: auto;
+		clear: left;
+	}
+	#page>li{
+		float: left; width: 20px; height: 20px; line-height: 20px; text-align: center;
+		border: 1px solid #ddd; 
+	}
+	/
 </style>
 <script>
 $(function(){
 	$('#slider').bxSlider({
 		mode: 'horizontal' // 'horizontal','vertical','fade'
 		, captions: true // 설명을 표시 (title태그에 있는 설명)
-		
 	});
 });
 </script>
-<div class="mainDiv">
+<div class="sliderDiv">
 	<ul id="slider">
 		<li><img src="<%=request.getContextPath()%>/img/banner1.jpg" title="Seoul Music Festival"></li>
 		<li><img src="<%=request.getContextPath()%>/img/banner2.jpg" title="SIBAC 2019"></li>
@@ -40,7 +54,7 @@ $(function(){
 		<li><img src="<%=request.getContextPath()%>/img/banner7.jpg" title="Zero 제로페이 미국 캐나다 이벤트"></li>
 	</ul>
 </div>
-<div class="mainDiv container">
+<div class="mainDiv">
 	<h1>자유게시판</h1>
 	<p><input type="checkbox" name="checkAll" id="checkAll">전체 선택</p>
 	<ul id="list">
@@ -58,7 +72,16 @@ $(function(){
 		<li>작성일</li>
 		<li>조회수</li>
 	</ul>
-	
+	<div>
+		<ul id="page">
+			<li class="prevNext">Prev</li>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li class="prevNext">Next</li>
+		</ul>
+	</div>
 </div>
 
 
