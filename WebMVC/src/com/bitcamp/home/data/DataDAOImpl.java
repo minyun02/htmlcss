@@ -16,7 +16,7 @@ public interface DataDAOImpl {
 	//조회수 증가
 	public void hitCount(int no);
 	//다운로드 횟수 증가
-	public void downloadCount(int no);
+	public int downloadCount(int no);
 	
 	
 }

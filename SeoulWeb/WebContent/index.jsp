@@ -16,36 +16,20 @@
 	#list>li:nth-child(6n+3){
 		width: 50%;
 	}
+	#slider img{
+		width: 100%;
+	}
 </style>
 <script>
 $(function(){
 	$('#slider').bxSlider({
 		mode: 'horizontal' // 'horizontal','vertical','fade'
-		, slideWidth: 800
-		, slideHeight: 350
-		//, speed: 1000 // 500 by default
-		, auto: true //true or false
-		//, randomStart: true
 		, captions: true // 설명을 표시 (title태그에 있는 설명)
-		//, ticker: true
-		, infiniteLoop: false
-		//, adaptiveHeight: true // 이미지 크기에 따라 높이 자동 조정
-		, hideControlOnEnd : true //컨트롤버튼 처음과 끝을 표시할지 여부 infiniteLoop가 false일때 가능
 		
-		//easing
-		, useCSS: false // easing 사용여부 (true : easing 사용 안함 false : easing 사용함)
-		, easing: 'easeOutElastic'
-		
-		, onSliderLoad : function(){//슬라이드가 로딩이 완료되면 호출되는 함수
-			console.log("onSliderLoad가 실행됨..")
-		}
-		, onSlideAfter : function(){//슬라이드가 움직이고 나면 호출되는 함수
-			console.log("슬라이드가 이동하였습니다......")
-		}
 	});
 });
 </script>
-<div class="mainDiv container">
+<div class="mainDiv">
 	<ul id="slider">
 		<li><img src="<%=request.getContextPath()%>/img/banner1.jpg" title="Seoul Music Festival"></li>
 		<li><img src="<%=request.getContextPath()%>/img/banner2.jpg" title="SIBAC 2019"></li>
