@@ -23,7 +23,7 @@
 		});
 	});
 	function delCheck(){
-		if(confirm("진짜 지워요??")){
+		if(confirm("삭제하시겠습니까?")){
 			location.href="<%=request.getContextPath()%>/data/dataDel.do?no=${vo.no}";	
 		}
 	}
@@ -39,16 +39,19 @@
 			 ${vo.content}
 		</li>
 		<li>첨부파일 : 
-			<a href="<%=request.getContextPath()%>/upload/${vo.filename1}" download>${vo.filename1}</a> 
-			
-			<c:if test="${vo.filename2!=null && vo.filename2!=''}">
-				<a href="<%=request.getContextPath()%>/upload/${vo.filename2}" download>${vo.filename2}</a>
-			</c:if>
-			</li>
+         <a href="<%=request.getContextPath()%>/upload/${vo.filename1}" download>
+            <img width="20" src="<%=request.getContextPath()%>/img/save.png" title="${vo.filename1}"/>${vo.filename1}</a>
+         <c:if test="${vo.filename2!=null && vo.filename2!=''}">
+            &nbsp;
+            <a href="<%=request.getContextPath()%>/upload/${vo.filename2}" download>
+               <img width="20" src="<%=request.getContextPath()%>/img/save.png" title="${vo.filename2}"/>${vo.filename2}</a>
+         </c:if>
+      </li>
+
 	</ul>
 	<div>
 		<c:if test="${userid == vo.userid}">
-			수정
+			<a href="<%=request.getContextPath()%>/data/dataEdit.do?no=${vo.no}">수정</a>
 			<a href="javascript:delCheck()">삭제</a>
 		</c:if>
 	</div>

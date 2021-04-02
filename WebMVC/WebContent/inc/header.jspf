@@ -16,7 +16,7 @@
 		float: left;
 		height: 80px;
 		line-height: 80px;
-		width: 20%;
+		width: 15%;
 		text-align: center;
 	}
 </style>
@@ -36,4 +36,5 @@
 	</c:if>
 	<li><a href="<%=request.getContextPath()%>/board/list.do">게시판</a></li>
 	<li><a href="<%=request.getContextPath()%>/data/dataList.do">자료실</a></li>
+	<li><a href="<%=request.getContextPath()%>/data/multiUploadForm.do">다중업로드</a></li>
 </ul>

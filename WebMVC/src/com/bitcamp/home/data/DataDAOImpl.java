@@ -8,7 +8,7 @@ public interface DataDAOImpl {
 	//글 선택 -- 글 내용보기, 글수정
 	public void dataSelect(DataVO vo);
 	//글 수정
-	public int dataUpdate(DataVO vo);
+	public int dataUpdate(DataVO vo, List<String> newFile);
 	//글 삭제
 	public int dataDelete(DataVO vo);
 	//글 목록
