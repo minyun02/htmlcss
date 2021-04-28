@@ -25,11 +25,32 @@ var server = http.createServer((request,response)=>{
       var imgMime = mime.getType(mapping.substring(1));
       fs.readFile("../"+mapping.substring(1), (error,imgData)=>{
          if(!error){
-            //읽
             response.writeHead(200,{"Content-Type": imgMime});
             response.end(imgData)
          }
       });
+   }else if(mapping.indexOf("/video")==0){//동영상 파일인 경우
+	   //1. 스트리밍 처리
+	   //1) Stream 객체 생성
+	   var stream = fs.createReadStream(".."+mapping);		// 한번에 65536바이트를 읽고
+	   //2) 파일에서 데이터를 읽었을 때 호출되는 이벤트
+	   var cnt = 1;
+	   stream.on('data', function(videoData){
+		   console.log(cnt++, '-->', videoData.length);
+		   response.write(videoData);
+	   });
+	   
+	   //3) 파일에서 마지막으로 데이터를 읽었을 때 호출되는 이벤트
+	   stream.on('end', function(){
+		   console.log('end streaming.....');
+		   response.end();
+	   });
+	   
+	   //4) 파일을 읽는 과정에서 에러가 발생하면 호출되는 이벤트
+	   stream.on('error', function(){
+		   console.log('Error......');
+		   response.end();
+	   });
    }else{
       //url이 잘못됬을떄
       response.writeHead(200,{"Content-Type":"text/html; charset=UTF-8"});
