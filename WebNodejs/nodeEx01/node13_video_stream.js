@@ -9,7 +9,7 @@ var server = http.createServer((request,response)=>{
    
    //html 페이지 요청이 들어왔을떄
    if(mapping=="/html"){
-      fs.readFile(__dirname+'\\node13_video_image.html','UTF-8',(error,data)=>{
+      fs.readFile(__dirname+'/node13_video_image.html','UTF-8',(error,data)=>{
          if(error){
             //읽기실패
             response.writeHead(200,{"Content-Type":"text/html; charset=UTF-8"});
