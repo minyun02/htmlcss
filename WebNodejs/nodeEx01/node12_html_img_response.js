@@ -11,7 +11,8 @@ var server = http.createServer(function(request, response){
 	var pathname = request.url;
 	if(pathname=='/hello'){
 		//비동기식으로 node12_hello.html을 파일읽기하여 response에 쓰기 한다.
-		fs.readFile(__dirname+"/node12_hello.html", 'utf-8', function(err, data){
+		fs.readFile(__dirname+"\\node12_hello.html", 'utf-8', function(err, data){
+		//fs.readFile(__dirname+"/node12_hello.html", 'utf-8', function(err, data){
 			if(err){
 				console.log("html읽기 실패...");
 			}else{
@@ -21,7 +22,7 @@ var server = http.createServer(function(request, response){
 			}
 		});
 	}else if(pathname=='/page'){
-		fs.readFile(__dirname+"/node12_hello2.html",'utf-8',function(err, data){
+		fs.readFile(__dirname+"\\node12_hello2.html",'utf-8',function(err, data){
 			if(err){
 				console.log("subpage에러...");
 			}else{

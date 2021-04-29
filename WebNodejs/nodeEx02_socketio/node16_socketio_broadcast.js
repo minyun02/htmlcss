@@ -8,7 +8,8 @@ var socketio = require('socket.io');
 var server = http.createServer(function(request, response){
 	var path = request.url;
 	if(path == "/chatBroad"){
-		fs.readFile(__dirname+"/chatingForm1.html", 'utf-8', function(error, data){
+		//fs.readFile(__dirname+"/chatingForm1.html", 'utf-8', function(error, data){
+		fs.readFile(__dirname+"\\chatingForm1.html", "utf-8", function(error, data){
 			response.writeHead(200, {"Content-type":"text/html;charset=utf-8"});
 			if(error){
 				response.end("파일읽기에러...");

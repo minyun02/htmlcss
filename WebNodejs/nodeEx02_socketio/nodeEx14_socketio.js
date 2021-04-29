@@ -7,7 +7,8 @@ var fs = require('fs');
 var server = http.createServer(function(request, response){
 	var pathname = request.url;
 	if(pathname=='/chatForm'){
-		fs.readFile(__dirname+"/chatingForm1.html", "utf-8", function(error, data){
+		//fs.readFile(__dirname+"/chatingForm1.html", "utf-8", function(error, data){
+		fs.readFile(__dirname+"\\chatingForm1.html", "utf-8", function(error, data){
 			if(error){
 				response.writeHead(200, {'Content-type':'text/html; charset=utf-8'});
 				response.end("<h1>404 ERROR PAGE</h1>");
