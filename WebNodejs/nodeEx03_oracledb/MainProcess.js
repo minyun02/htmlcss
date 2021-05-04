@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({extended:true})); //한글 인코딩 세팅
 
 //서버에 접속시 get방식으로 접속하면 get(), post방식으로 접속시 post()함수를 사용한다.
 app.get('/home', function(request, response){
-	fs.readFile(__dirname+"\\home.html", 'utf-8', function(error, data){
+	fs.readFile(__dirname+"\\home.ejs", 'utf-8', function(error, data){
 		if(error){
 			response.writeHead(200, {"Content-type":"text/html; charset=utf-8"});
 			response.end('파일읽기 에러발생');
@@ -74,7 +74,7 @@ app.get('/list', function(req, res){
 			res.end('<script>location.href="/home";</script>');
 		}else{
 			//레코드 선택시...
-			console.log(result);
+			//console.log(result);
 			
 			fs.readFile('boardList.ejs', 'utf-8', function(error, data){
 				if(error){
@@ -165,9 +165,159 @@ app.get('/boardView', function(req, res){
 	});
 	//3. 레코드 선택하여 ejs로 보내기
 	//CLOB 데이터형 처럼 대용량 데이터인 경우 DBMS_LOB.SUBSTR()함수를 이용하여 레코드를 선택하여야 한다.
-	var sql2 = "select no, userid, subject, DBNS_LOB.SUBSTR(content, DBMS_LOB.GETLENGTH(content)), hit, writedate from board where no="+no;
+	var sql2 = "select no, userid, subject, DBMS_LOB.SUBSTR(content, DBMS_LOB.GETLENGTH(content)) content, " +
+			" hit, to_char(writedate, 'YYYY-MM-DD HH:MI:SS') writedate from board where no="+no;
+	//---
+	conn.execute(sql2, function(error, result){
+		if(error){
+			console.log("글내용보기 레코드 선택 에러");
+		}else{
+			fs.readFile("boardView.ejs", 'utf-8', function(error, data){
+				if(error){
+					console.log("boardView.ejs파일읽기 실패");
+				}else{
+					console.log('=========boardView============');
+					console.log(result);
+					res.writeHead(200, {"Content-type":"text/html;charset=utf-8"});
+					res.end(ejs.render(data,{records:result}));
+				}
+			});
+		}
+	});
+});
+//글 내용수정 폼
+app.get('/boardEdit', (request, res)=>{
+	var no =request.param('no');
+	
+	var sql = "select no, userid, subject, DBMS_LOB.SUBSTR(content, DBMS_LOB.GETLENGTH(content)) content " +
+			" from board where no="+no;
+	
+	conn.execute(sql, (error, result)=>{
+		if(error){//레코드 선택 에러 발생시
+			res.writeHead(200, {"Content-type":"text/html; charset=utf-8"});
+			res.end("레코드 선택에러 발생!!!!!!");
+		}else{//레코드 선택 성공
+			fs.readFile("boardEdit.ejs", 'utf-8', (error, data)=>{
+				if(error){// 파일 읽기 실패
+					res.wirteHead(200, {"Content-type":"text/html;charset=utf-8"});
+					res.end("수정 폼 파일 읽기 에러....");
+				}else{// 파일 읽기 성공
+					res.writeHead(200, {"Content-type":"text/html;charset=utf-8"});
+					res.end(ejs.render(data,{records:result}));
+				}
+			});
+		}
+	});
+});
+//글 수정(update)
+app.post('/editOk', (req, res)=>{
+	var no = req.param('no');
+	var userid = req.param('userid');
+	var subject = req.param("subject");
+	var content = req.param('content');
+	
+	var sql = "update board set subject='"+subject+"', content='"+content+"' where no="+no+" and userid='"+userid+"'";
+	
+	conn.execute(sql, (error, result)=>{
+		console.log('result->'+result);
+		console.log('result.rowsAffected--->'+result.rowsAffected);
+		if(result.rowsAffected<=0){//수정 실패
+			//글 수정 폼으로 이동
+			// 리다이렉트 처리방식
+			res.statusCode = 302; // 302 : url이 리다이렉트로 이동한다.
+			res.setHeader('Location','/boardEdit?no='+no);
+			res.end();
+		}else{//수정 성공
+			//글내용보기로 이동
+			res.statusCode = 302;
+			res.setHeader('Location','/boardView?no='+no);
+			res.end();
+		}
+	});
+});
+
+//레코드 삭제
+app.get('/boardDel', (req, res)=>{
+	var no = req.param('no');
+	
+	var sql = "delete from board where no="+no;
+	
+	conn.execute(sql, (error, result)=>{
+		if(error){
+			res.statusCode = 302;
+			res.setHeader('Location', '/boardView?no='+no);
+			res.end();
+		}else{
+			res.statusCode = 302;
+			res.setHeader('Location', '/list');
+			res.end();
+		}
+	});
 });
 ///=접속대기===================================================================
 server.listen(15005, ()=>{
 	console.log("server start~~~~~ http://127.0.0.1:15005/home");
 });
+
+//=================================로그인======================================
+var session = require('express-session');
+
+//로그인 폼
+app.get('/login', (req, res)=>{
+	
+	fs.readFile("login.html", 'utf-8', (error, data)=>{
+		if(error){
+			res.writeHead(200, {"Content-type":"text/html; charset=utf-8"});
+			res.end('로그인 폼 읽기 실패...');
+		}else{
+			res.writeHead(200, {"Content-type":"text/html; charset=utf-8"});
+			res.end(data);
+		}
+	});
+});
+
+//로그인
+app.post('/loginOk', (req, res)=>{
+	var userid = req.param('userid');
+	var userpwd = req.param('userpwd');
+	console.log(userid+", "+userpwd);
+	
+	//아이디, 이름을 선택
+	var sql = "select userid, username from register " +
+			" where userid='"+userid+"' and userpwd='"+userpwd+"'";
+	
+	conn.execute(sql, (error, result)=>{
+		if(error){//로그인 실패
+			console.log("!!!!");
+			res.statusCode = 302;
+			res.setHeader('Location', '/login');
+			res.end();
+		}else{//로그인 성공
+			console.log(result+"??");
+			
+			//세션 설정
+			session.user = {
+				userid : result.rows[0][0],
+				username : result.rows[0][1],
+				logStatus : 'Y'
+			};
+			console.log("======================session======================");
+			console.log(session.user);
+			
+			fs.readFile('home.ejs', 'utf-8', (error, data)=>{
+				if(error){
+					res.writeHead(200, {"Content-type":"text/html; charset=utf-8"});
+					res.end();
+				}else{
+					res.writeHead(200, {"Content-type":"text/html; charset=utf-8"});
+					res.end(data);
+				}
+			});
+		}
+	});
+});
+
+
+
+
+
