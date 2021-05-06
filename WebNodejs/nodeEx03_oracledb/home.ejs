@@ -14,8 +14,12 @@
 </head>
 <body>
 <div class="container">
-	<a href="/login">로그인</a>
-	<a href="/login">로그아웃</a>
+	<%if(logStatus=='N'){%>
+		<a href="/login">로그인</a>
+	<%}else if(logStatus=="Y"){%>
+		<%=user.username %><a href="/logout">로그아웃</a><br>
+	<%}%>
+	<hr>
 	<a href="/list"><img src="./images/icon15.png">게시판	</a>
 	<a href="/list"><img src="./images/wingani.gif"></a>
 </div>

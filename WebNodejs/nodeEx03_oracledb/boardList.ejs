@@ -16,7 +16,11 @@
 <body>
 <div class="container">
 	<h1>게시판 리스트</h1>
-	<a href="/boardWrite">글쓰기</a><br>
+	<a href ="/home">홈</a>
+	<%if(logStatus=="Y"){ %>
+		<a href="/boardWrite">글쓰기</a><br>
+	<%}%>
+		
 	총 레코드 수 : <%=totalrecord%>
 	<ul id="boardList">
 		<li>번호</li>

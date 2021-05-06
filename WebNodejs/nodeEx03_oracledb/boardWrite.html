@@ -12,7 +12,7 @@
 <div class="container">
 	<h1>글쓰기</h1>
 	<form method="post" action="/writeOk">
-		작성자 : <input type="text" name="userid"><br>
+		작성자 : <input type="text" name="userid" value="<%=user.userid%>"><br>
 		제목 : <input type="text" name="subject"><br>
 		글내용 : <textarea name="content" cols="60" rows="5"></textarea><br>
 		<input type="submit" value="글등록">
