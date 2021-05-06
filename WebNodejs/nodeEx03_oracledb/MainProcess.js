@@ -198,11 +198,20 @@ app.get('/boardView', function(req, res){
 				}else{
 					console.log('=========boardView============');
 					console.log(result);
+					
 					res.writeHead(200, {"Content-type":"text/html;charset=utf-8"});
-					res.end(ejs.render(data,{
-						records:result,
-						user : session.user
+					if(session.user){
+						res.end(ejs.render(data,{
+							records:result,
+							user : session.user,
+							logStatus : 'Y'
+							}));
+					}else{
+						res.end(ejs.render(data,{
+							records:result,
+							logStatus : 'N'
 						}));
+					}
 				}
 			});
 		}
